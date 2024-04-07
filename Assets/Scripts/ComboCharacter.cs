@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,6 @@ public class ComboCharacter : MonoBehaviour
     private StateMachine meleeStateMachine;
     private PlayerController playerController;
 
-    public Transform hitbox;
-    public float testRange;
-
     [SerializeField]
     private float attackPower;
     private float damage;
@@ -18,10 +16,12 @@ public class ComboCharacter : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnAttackButtonPressed += SetFirstAttackState;
+        Actions.OnDashButtonPressed += SetDashState;
     }
     private void DisEnable()
     {
         Actions.OnAttackButtonPressed -= SetFirstAttackState;
+        Actions.OnDashButtonPressed -= SetDashState;
     }
 
     // Start is called before the first frame update
@@ -40,23 +40,51 @@ public class ComboCharacter : MonoBehaviour
     }
 
     //animation event
-    public void SetDamage(float setMultiplier)
+    public void SetMultiplier(float setMultiplier)
     {
         damage = attackPower * setMultiplier;
         Actions.HitboxDamage(damage);
     }
 
-    //linked to button action
+    //linked to attack button action
     public void SetFirstAttackState()
     {
 
-        if (!playerController.isDashing)
+        if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
+        {
+            meleeStateMachine.SetNextState(new Attack1State());
+        }
+
+    }
+
+    //linked to dash button action
+    public void SetDashState()
+    {
+
+        if (playerController.canDash)
         {
             if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
             {
-                meleeStateMachine.SetNextState(new Attack1State());
+                meleeStateMachine.SetNextState(new DashState());
+                StartCoroutine(DashTiming());
             }
         }
+
+    }
+
+
+    private IEnumerator DashTiming()
+    {
+        playerController.canDash = false;
+        playerController.isDashing = true;
+
+        //animation length
+        yield return new WaitForSeconds(playerController.dashTime);
+        playerController.isDashing = false;
+
+        //cooldown
+        yield return new WaitForSeconds(playerController.dashCooldown);
+        playerController.canDash = true;
 
     }
 

@@ -37,7 +37,6 @@ public abstract class State
 
 
     //what in the actual fuck..
-
     #region Passthrough Methods
 
     /// <summary>

@@ -890,7 +890,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289447615}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1014,10 +1014,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee38659ba4a6d04b974b8e4ace4a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   joystick: {fileID: 530334953}
   moveSpeed: 7
+  isAttacking: 0
+  canDash: 1
   isDashing: 0
-  dashPower: 24
   dashTime: 0.2
   dashCooldown: 1
   maxHealth: 100
@@ -1035,7 +1037,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2a4f80db3aac4cc42a637a403621db4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1068,8 +1070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13f1243897773c4dacac32c90dcb453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 1508688361}
-  testRange: 1.5
   attackPower: 1
 --- !u!1 &321583313
 GameObject:

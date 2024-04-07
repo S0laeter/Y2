@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,10 @@ public class Attack1State : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
 
-        //individual atk damage
-        //damage = 10;
-
         attackIndex = 1;
         duration = 0.5f;
-        anim.SetTrigger("Attack" + attackIndex);
-        Debug.Log("atk " + attackIndex + " executed");
+        playerController.anim.SetTrigger("Attack" + attackIndex);
+        Debug.Log("atk " + attackIndex);
     }
 
     public override void OnUpdate()
@@ -38,5 +36,4 @@ public class Attack1State : MeleeBaseState
 
         }
     }
-
 }

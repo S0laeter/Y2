@@ -8,13 +8,10 @@ public class Attack2State : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
 
-        //individual atk damage
-        //damage = 15;
-
         attackIndex = 2;
         duration = 0.5f;
-        anim.SetTrigger("Attack" + attackIndex);
-        Debug.Log("atk " + attackIndex + " executed");
+        playerController.anim.SetTrigger("Attack" + attackIndex);
+        Debug.Log("atk " + attackIndex);
     }
 
     public override void OnUpdate()

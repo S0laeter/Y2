@@ -6,26 +6,20 @@ using UnityEngine;
 public class MeleeBaseState : State
 {
 
-    public Animator anim;
-
-    //public float damage;
-
     public float duration;
     protected bool shouldCombo;
     protected int attackIndex;
 
-    protected Transform hitboxPoint;
-
-    private ComboCharacter combo;
+    protected ComboCharacter comboCharacter;
+    protected PlayerController playerController;
 
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
 
         //getting stuffs
-        anim = GetComponent<Animator>();
-        combo = GetComponent<ComboCharacter>();
-        hitboxPoint = combo.hitbox;
+        comboCharacter = GetComponent<ComboCharacter>();
+        playerController = GetComponent<PlayerController>();
 
         //subscribing to actions
         Actions.OnAttackButtonPressed += OnAttackButtonPressed;

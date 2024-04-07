@@ -5,41 +5,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
+    public Animator anim;
+    public Rigidbody rb;
 
     public FixedJoystick joystick;
     private Vector2 joystickRotation;
     
     public float moveSpeed;
 
-    private bool canDash = true;
+    public bool isAttacking;
+
+    public bool canDash = true;
     public bool isDashing;
-    public float dashPower = 24f;
-    public float dashTime = 0.2f;
-    public float dashCooldown = 1f;
+    public float dashTime = 0.25f;
+    public float dashCooldown = 0.5f;
 
     public float maxHealth = 100f;
     public float currentHealth;
 
 
-
-    private void OnEnable()
-    {
-        //subscribing to actions
-        Actions.OnDashButtonPressed += TriggerDash;
-    }
-    private void OnDisable()
-    {
-        //unsubscribing to actions
-        Actions.OnDashButtonPressed -= TriggerDash;
-    }
-
-
-
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 
         currentHealth = maxHealth;
 
@@ -59,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        //cant move while dashing
         if (isDashing)
         {
             return;
@@ -67,9 +58,6 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
 
     }
-
-
-
 
     private void PlayerMovement()
     {
@@ -86,16 +74,13 @@ public class PlayerController : MonoBehaviour
             this.transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
 
-    }
+        //run animation
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            anim.SetTrigger("Run");
+        else
+            anim.SetTrigger("Idle");
 
-    private void TriggerDash()
-    {
-        if (canDash)
-        {
-            StartCoroutine(Dash());
-        }
     }
-
 
     public void TakeDamage(float damage)
     {
@@ -112,19 +97,5 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
 
-        //dash
-        rb.velocity = transform.forward * dashPower;
-        
-        yield return new WaitForSeconds(dashTime);
-        isDashing = false;
-        
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-            
-    }
 }
