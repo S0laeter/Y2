@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,10 @@ public class Attack3State : MeleeBaseState
 
         attackIndex = 3;
         duration = 0.5f;
+
         playerController.anim.SetTrigger("Attack" + attackIndex);
+        playerController.StartCoroutine(playerController.AttackTiming(duration));
+
         Debug.Log("atk " + attackIndex);
     }
 
@@ -18,11 +22,19 @@ public class Attack3State : MeleeBaseState
     {
         base.OnUpdate();
 
+        //dash button pressed
+        if (shouldDash)
+        {
+            stateMachine.SetNextState(new DashState());
+        }
+
         //whether or not to continue combo
         if (fixedTime >= duration)
         {
+
             //end of combo
             stateMachine.SetNextStateToMain();
+
         }
     }
 }

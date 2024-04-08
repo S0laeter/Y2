@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     public Animator anim;
     public Rigidbody rb;
 
@@ -17,8 +18,6 @@ public class PlayerController : MonoBehaviour
 
     public bool canDash = true;
     public bool isDashing;
-    public float dashTime = 0.25f;
-    public float dashCooldown = 0.5f;
 
     public float maxHealth = 100f;
     public float currentHealth;
@@ -27,12 +26,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
 
         currentHealth = maxHealth;
 
         Actions.UpdateHealthBar(this);
+
     }
 
     // Update is called once per frame
@@ -49,8 +47,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        //cant move while dashing
-        if (isDashing)
+        //cant move while dashing or attacking
+        if (isDashing || isAttacking)
         {
             return;
         }
@@ -67,21 +65,22 @@ public class PlayerController : MonoBehaviour
         //move according to that rotation
         rb.velocity = new Vector3( joystickRotation.x * moveSpeed, rb.velocity.y, joystickRotation.y * moveSpeed);
 
-        //when moving
+        //when moving or not
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
-            //rotate according to direction
+            //rotate according to moving direction
             this.transform.rotation = Quaternion.LookRotation(rb.velocity);
-        }
 
-        //run animation
-        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
             anim.SetTrigger("Run");
+        }
         else
+        {
             anim.SetTrigger("Idle");
+        }
 
     }
 
+    //take damage, but invincible while dashing
     public void TakeDamage(float damage)
     {
         if (!isDashing)
@@ -92,10 +91,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //die
     public void Die()
     {
 
     }
 
+
+
+
+
+
+
+
+    //attacking check, called from MeleeBaseState
+    public IEnumerator AttackTiming(float attackTime)
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(attackTime);
+        isAttacking = false;
+    }
+
+    //dashing check, called from DashState
+    public IEnumerator DashTiming(float dashDuration)
+    {
+        isDashing = true;
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+    }
+    //dash cooldown, called from DashState
+    public IEnumerator DashCooldown(float dashCooldown)
+    {
+        canDash = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
 
 }

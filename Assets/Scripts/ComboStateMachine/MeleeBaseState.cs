@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,9 +7,13 @@ using UnityEngine;
 public class MeleeBaseState : State
 {
 
-    public float duration;
     protected bool shouldCombo;
+    protected float duration;
     protected int attackIndex;
+
+    protected bool shouldDash;
+    protected float dashDuration;
+    protected float dashCooldown;
 
     protected ComboCharacter comboCharacter;
     protected PlayerController playerController;
@@ -23,6 +28,7 @@ public class MeleeBaseState : State
 
         //subscribing to actions
         Actions.OnAttackButtonPressed += OnAttackButtonPressed;
+        Actions.OnDashButtonPressed += SetDashState;
     }
 
     public override void OnUpdate()
@@ -37,14 +43,19 @@ public class MeleeBaseState : State
 
         //unsubscribing to actions
         Actions.OnAttackButtonPressed -= OnAttackButtonPressed;
+        Actions.OnDashButtonPressed -= SetDashState;
     }
 
-    //linked to button action
+    //linked to attack button action
     public void OnAttackButtonPressed()
     {
         shouldCombo = true;
     }
-
+    //linked to dash button action
+    public void SetDashState()
+    {
+        shouldDash = true;
+    }
 
 
 }

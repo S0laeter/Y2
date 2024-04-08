@@ -1014,14 +1014,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee38659ba4a6d04b974b8e4ace4a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  anim: {fileID: 289447622}
+  rb: {fileID: 289447616}
   joystick: {fileID: 530334953}
-  moveSpeed: 7
+  moveSpeed: 10
   isAttacking: 0
   canDash: 1
   isDashing: 0
-  dashTime: 0.2
-  dashCooldown: 1
   maxHealth: 100
   currentHealth: 0
 --- !u!95 &289447622
@@ -1861,7 +1860,7 @@ Rigidbody:
   m_GameObject: {fileID: 545339149}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -5635,7 +5634,7 @@ Rigidbody:
   m_GameObject: {fileID: 1744457044}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

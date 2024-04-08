@@ -9,8 +9,13 @@ public class DashState : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
 
-        duration = playerController.dashTime;
+        dashDuration = 0.25f;
+        dashCooldown = 0.5f;
+
         playerController.anim.SetTrigger("Dash");
+        playerController.StartCoroutine(playerController.DashTiming(dashDuration));
+        playerController.StartCoroutine(playerController.DashCooldown(dashCooldown));
+
         Debug.Log("dash");
     }
 

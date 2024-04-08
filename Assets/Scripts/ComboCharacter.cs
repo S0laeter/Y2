@@ -39,7 +39,7 @@ public class ComboCharacter : MonoBehaviour
         
     }
 
-    //animation event
+    //animation event on the hitbox
     public void SetMultiplier(float setMultiplier)
     {
         damage = attackPower * setMultiplier;
@@ -66,25 +66,8 @@ public class ComboCharacter : MonoBehaviour
             if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
             {
                 meleeStateMachine.SetNextState(new DashState());
-                StartCoroutine(DashTiming());
             }
         }
-
-    }
-
-
-    private IEnumerator DashTiming()
-    {
-        playerController.canDash = false;
-        playerController.isDashing = true;
-
-        //animation length
-        yield return new WaitForSeconds(playerController.dashTime);
-        playerController.isDashing = false;
-
-        //cooldown
-        yield return new WaitForSeconds(playerController.dashCooldown);
-        playerController.canDash = true;
 
     }
 
