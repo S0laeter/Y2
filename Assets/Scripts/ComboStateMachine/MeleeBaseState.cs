@@ -7,6 +7,7 @@ using UnityEngine;
 public class MeleeBaseState : State
 {
 
+    //duration doesnt need to be the same as animation length, make it slightly shorter to transition early to next attack
     protected bool shouldCombo;
     protected float duration;
     protected int attackIndex;
