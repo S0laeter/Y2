@@ -385,7 +385,6 @@
 "Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs"
 "Assets/Scripts/Actions.cs"
-"Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/ComboCharacter.cs"
 "Assets/Scripts/ComboStateMachine/Attack1State.cs"
 "Assets/Scripts/ComboStateMachine/Attack2State.cs"

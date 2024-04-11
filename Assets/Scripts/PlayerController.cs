@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -101,9 +102,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
-
     //attacking check, called from MeleeBaseState
     public IEnumerator AttackTiming(float attackTime)
     {
@@ -125,6 +123,31 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+
+
+
+
+
+    //simple auto lock on when attacking, called from attack states
+    public void SimpleLockOn()
+    {
+        //array of colliders in range, in layer Enemy
+        Collider[] enemiesInRange = new Collider[100];
+        enemiesInRange = Physics.OverlapSphere(transform.position, 10f, LayerMask.GetMask("Enemy"));
+        if (enemiesInRange.Length == 0)
+            return;
+
+        //sort by distance using Linq
+        enemiesInRange = enemiesInRange.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
+
+        //rotate to face nearest enemy
+        this.transform.LookAt(enemiesInRange[0].transform);
+        Debug.Log("locked onto " + enemiesInRange[0]);
+
+        //clear array for next lock on
+        System.Array.Clear(enemiesInRange, 0, enemiesInRange.Length);
     }
 
 }
