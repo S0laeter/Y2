@@ -34,6 +34,10 @@ public class HUDManager : MonoBehaviour
     {
         Actions.OnAttackButtonPressed();
     }
+    public void SkillButtonPressed()
+    {
+        Actions.OnSkillButtonPressed();
+    }
     public void DashButtonPressed()
     {
         Actions.OnDashButtonPressed();

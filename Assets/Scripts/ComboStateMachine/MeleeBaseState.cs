@@ -9,8 +9,10 @@ public class MeleeBaseState : State
 
     //duration doesnt need to be the same as animation length, make it slightly shorter to transition early to next attack
     protected bool shouldCombo;
-    protected float duration;
+    protected bool shouldSkill;
     protected int attackIndex;
+    protected int skillIndex;
+    protected float duration;
 
     protected bool shouldDash;
     protected float dashDuration;
@@ -29,6 +31,7 @@ public class MeleeBaseState : State
 
         //subscribing to actions
         Actions.OnAttackButtonPressed += OnAttackButtonPressed;
+        Actions.OnSkillButtonPressed += OnSkillButtonPressed;
         Actions.OnDashButtonPressed += SetDashState;
     }
 
@@ -44,6 +47,7 @@ public class MeleeBaseState : State
 
         //unsubscribing to actions
         Actions.OnAttackButtonPressed -= OnAttackButtonPressed;
+        Actions.OnSkillButtonPressed -= OnSkillButtonPressed;
         Actions.OnDashButtonPressed -= SetDashState;
     }
 
@@ -51,6 +55,12 @@ public class MeleeBaseState : State
     public void OnAttackButtonPressed()
     {
         shouldCombo = true;
+        shouldSkill = false;
+    }
+    public void OnSkillButtonPressed()
+    {
+        shouldSkill = true;
+        shouldCombo = false;
     }
     //linked to dash button action
     public void SetDashState()

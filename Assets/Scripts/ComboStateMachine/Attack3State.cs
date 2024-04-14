@@ -16,6 +16,8 @@ public class Attack3State : MeleeBaseState
         playerController.SimpleLockOn();
         playerController.anim.SetTrigger("Attack" + attackIndex);
         playerController.StartCoroutine(playerController.AttackTiming(duration));
+
+        Debug.Log("attack " + attackIndex);
     }
 
     public override void OnUpdate()

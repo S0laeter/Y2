@@ -393,6 +393,7 @@
 "Assets/Scripts/ComboStateMachine/IdleCombatState.cs"
 "Assets/Scripts/ComboStateMachine/MeleeBaseState.cs"
 "Assets/Scripts/ComboStateMachine/MeleeEntryState.cs"
+"Assets/Scripts/ComboStateMachine/Skill1State.cs"
 "Assets/Scripts/ComboStateMachine/State.cs"
 "Assets/Scripts/ComboStateMachine/StateMachine.cs"
 "Assets/Scripts/EnemyController.cs"

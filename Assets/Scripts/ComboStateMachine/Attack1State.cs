@@ -16,6 +16,8 @@ public class Attack1State : MeleeBaseState
         playerController.SimpleLockOn();
         playerController.anim.SetTrigger("Attack" + attackIndex);
         playerController.StartCoroutine(playerController.AttackTiming(duration));
+
+        Debug.Log("attack " + attackIndex);
     }
 
     public override void OnUpdate()
@@ -36,6 +38,11 @@ public class Attack1State : MeleeBaseState
             if (shouldCombo)
             {
                 stateMachine.SetNextState(new Attack2State());
+            }
+            //skill button pressed
+            else if (shouldSkill)
+            {
+                stateMachine.SetNextState(new Skill1State());
             }
             //nothing pressed
             else
