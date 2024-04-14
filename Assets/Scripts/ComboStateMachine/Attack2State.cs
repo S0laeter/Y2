@@ -39,6 +39,11 @@ public class Attack2State : MeleeBaseState
             {
                 stateMachine.SetNextState(new Attack3State());
             }
+            //skill button pressed
+            else if (shouldSkill)
+            {
+                stateMachine.SetNextState(new Skill2State());
+            }
             //nothing pressed
             else
             {

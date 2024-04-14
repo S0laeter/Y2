@@ -34,8 +34,21 @@ public class Attack3State : MeleeBaseState
         if (fixedTime >= duration)
         {
 
-            //end of combo
-            stateMachine.SetNextStateToMain();
+            //atk button pressed
+            if (shouldCombo)
+            {
+                stateMachine.SetNextState(new Attack4State());
+            }
+            //skill button pressed
+            else if (shouldSkill)
+            {
+                stateMachine.SetNextState(new Skill3State());
+            }
+            //nothing pressed
+            else
+            {
+                stateMachine.SetNextStateToMain();
+            }
 
         }
     }
