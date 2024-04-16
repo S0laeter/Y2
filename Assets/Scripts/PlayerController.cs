@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             //smooth out the angle (only for smooth turning with keyboard stuffs but imma just include it anyway)
             float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, angle, ref turnSmoothVelocity, 0.1f);
             //then rotate to look
-            this.transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
+            this.transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             //now move
             Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
