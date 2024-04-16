@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -143,7 +144,11 @@ public class PlayerController : MonoBehaviour
         enemiesInRange = enemiesInRange.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
 
         //rotate to face nearest enemy
-        this.transform.LookAt(enemiesInRange[0].transform);
+        Vector3 relativePosition = enemiesInRange[0].transform.position - this.transform.position;
+        //this is so the character doesnt look up or down, only straight forward
+        relativePosition.y = 0f;
+        transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
+
         Debug.Log("locked onto " + enemiesInRange[0]);
 
         //clear array for next lock on
