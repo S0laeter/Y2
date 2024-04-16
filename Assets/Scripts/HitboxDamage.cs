@@ -12,13 +12,13 @@ public class HitboxDamage : MonoBehaviour
     private void OnEnable()
     {
         //subscribing to actions
-        Actions.HitboxDamage += SetDamage;
+        Actions.PassHitboxDamage += SetDamage;
     }
 
     private void OnDisable()
     {
         //unsubscribing to actions
-        Actions.HitboxDamage -= SetDamage;
+        Actions.PassHitboxDamage -= SetDamage;
     }
 
     private void SetDamage(float hitboxDamage)

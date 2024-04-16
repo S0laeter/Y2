@@ -126,8 +126,8 @@
     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableSpriteRendererColor.cs" />
     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoinInsert.cs" />
     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanDestroy.cs" />
-    <Compile Include="Assets\Plugins\CW\LeanGUI\Required\Scripts\LeanConstrainAnchoredPosition.cs" />
     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalRotation.cs" />
+    <Compile Include="Assets\Plugins\CW\LeanGUI\Required\Scripts\LeanConstrainAnchoredPosition.cs" />
     <Compile Include="Assets\Plugins\CW\LeanGUI\Required\Scripts\LeanPulse.cs" />
     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta_y.cs" />
     <Compile Include="Assets\Plugins\CW\LeanGUI\Required\Scripts\LeanButton.cs" />

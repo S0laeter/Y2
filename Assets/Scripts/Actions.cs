@@ -12,5 +12,7 @@ public static class Actions
     public static Action OnAttackButtonPressed;
     public static Action OnSkillButtonPressed;
     public static Action OnDashButtonPressed;
-    public static Action<float> HitboxDamage;
+    public static Action<float> PassHitboxDamage;
+
+    public static Action<string> LevelSelectButtonPressed;
 }
