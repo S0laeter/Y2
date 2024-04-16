@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
 
+    float turnSmoothVelocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,19 +67,33 @@ public class PlayerController : MonoBehaviour
 
         //get the joystick rotation, normalized so it stays at the same speed
         joystickDirection = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
-        //move according to that rotation
-        rb.velocity = new Vector3(joystickDirection.x * moveSpeed, rb.velocity.y, joystickDirection.y * moveSpeed);
+
+        //just get the direction first, then do whatever later
+        Vector3 direction = new Vector3(joystickDirection.x, 0f, joystickDirection.y).normalized;
 
         //when moving or not
-        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+        if (direction.magnitude > 0)
         {
-            //rotate according to moving direction
-            this.transform.rotation = Quaternion.LookRotation(rb.velocity);
 
+            //run animation
             anim.SetTrigger("Run");
+
+            //look rotation
+            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+
+            //smooth out the angle (only for smooth turning with keyboard stuffs but imma just include it anyway)
+            float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, angle, ref turnSmoothVelocity, 0.1f);
+            //then rotate to look
+            this.transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
+
+            //now move
+            Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+            rb.velocity = moveDirection.normalized * moveSpeed * Time.deltaTime;
+
         }
         else
         {
+            //idle animation
             anim.SetTrigger("Idle");
         }
 
