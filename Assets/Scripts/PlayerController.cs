@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
     public Rigidbody rb;
+    public Transform cam;
 
     public FixedJoystick joystick;
-    private Vector2 joystickRotation;
+    private Vector2 joystickDirection;
     
     public float moveSpeed;
 
@@ -63,9 +64,9 @@ public class PlayerController : MonoBehaviour
     {
 
         //get the joystick rotation, normalized so it stays at the same speed
-        joystickRotation = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
+        joystickDirection = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
         //move according to that rotation
-        rb.velocity = new Vector3( joystickRotation.x * moveSpeed, rb.velocity.y, joystickRotation.y * moveSpeed);
+        rb.velocity = new Vector3(joystickDirection.x * moveSpeed, rb.velocity.y, joystickDirection.y * moveSpeed);
 
         //when moving or not
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
