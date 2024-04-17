@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 joystickDirection;
     
     public float moveSpeed;
+    public bool isRunning;
 
     public bool isAttacking;
 
@@ -89,12 +90,18 @@ public class PlayerController : MonoBehaviour
             //now move
             Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
             rb.velocity = moveDirection.normalized * moveSpeed * Time.deltaTime;
+            
+            isRunning = true;
 
         }
         else
         {
+
             //idle animation
             anim.SetTrigger("Idle");
+
+            isRunning = false;
+
         }
 
     }
