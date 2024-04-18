@@ -38,11 +38,15 @@ public class ComboCharacter : MonoBehaviour
 
 
 
-    //animation event on the hitbox
+    //animation events on the hitbox
     public void PassHitboxDamage(float setMultiplier)
     {
         damage = attackPower * setMultiplier;
         Actions.PassHitboxDamage(damage);
+    }
+    public void PassHitboxKnockback(float setKnockback)
+    {
+        Actions.PassHitboxKnockback(setKnockback);
     }
 
 

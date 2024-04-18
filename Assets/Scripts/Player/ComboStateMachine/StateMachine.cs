@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public string customName;
+    //public string customName;
     private State mainStateType;
 
     public State currentState { get; private set; }
@@ -72,10 +72,8 @@ public class StateMachine : MonoBehaviour
     {
         if (mainStateType == null)
         {
-            if (customName == "Combat")
-            {
+            //if (customName == "Combat")
                 mainStateType = new IdleCombatState();
-            }
         }
     }
 
