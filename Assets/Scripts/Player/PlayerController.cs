@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
     public Rigidbody rb;
-    public Transform cam;
 
+    public Transform cam;
     public FixedJoystick joystick;
+
     private Vector2 joystickDirection;
     
     public float moveSpeed;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 
         currentHealth = maxHealth;
 
@@ -155,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    //simple auto lock on when attacking, called from attack states
+    //simple lock on to nearest enemy when attacking, called from attack states
     public void SimpleLockOn()
     {
         //array of colliders in range, in layer Enemy
@@ -167,11 +170,12 @@ public class PlayerController : MonoBehaviour
         //sort by distance using Linq
         enemiesInRange = enemiesInRange.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
 
-        //rotate to face nearest enemy
+        //get the direction of enemy
         Vector3 relativePosition = enemiesInRange[0].transform.position - this.transform.position;
         //this is so the character doesnt look up or down, only straight forward
         relativePosition.y = 0f;
-        transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
+        //rotate to face it
+        this.transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
 
         Debug.Log("locked onto " + enemiesInRange[0]);
 
