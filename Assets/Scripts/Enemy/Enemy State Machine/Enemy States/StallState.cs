@@ -9,6 +9,7 @@ public class StallState : EnemyBaseState
         base.OnEnter(_enemyStateMachine);
         
         stateDuration = Random.Range(2f, 5f);
+        randomNextAction = Random.Range(0, 2);
 
         //move around
         enemyController.anim.SetTrigger("Stall");
@@ -33,7 +34,20 @@ public class StallState : EnemyBaseState
             //transition to next state, based on both stateDuration and condition
             if (enemyController.shouldAttack)
             {
-                enemyStateMachine.SetNextState(new AttackState());
+
+                //choose a random attack
+                switch (randomNextAction)
+                {
+                    case 0:
+                        enemyStateMachine.SetNextState(new EnemyAttack1State());
+                        break;
+                    case 1:
+                        enemyStateMachine.SetNextState(new EnemyAttack2State());
+                        break;
+                    default:
+                        break;
+                }
+
             }
             else if (enemyController.shouldApproach)
             {

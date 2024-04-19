@@ -11,6 +11,9 @@ public class EnemyBaseState : EnemyState
 
     protected float stateDuration;
 
+    //reminder, random range for int is maxExclusive, so the maximum gotta be one int higher
+    protected int randomNextAction;
+
     public override void OnEnter(EnemyStateMachine _enemyStateMachine)
     {
         base.OnEnter(_enemyStateMachine);

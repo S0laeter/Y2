@@ -9,6 +9,7 @@ public class ApproachState : EnemyBaseState
         base.OnEnter(_enemyStateMachine);
 
         stateDuration = 1f;
+        randomNextAction = Random.Range(0, 3);
 
         enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
         enemyController.anim.SetTrigger("Approach");
@@ -23,7 +24,22 @@ public class ApproachState : EnemyBaseState
         //transition to next state, only based on condition
         if (enemyController.shouldAttack)
         {
-            enemyStateMachine.SetNextState(new AttackState());
+
+            //choose a random attack, or just wait and do nothing lmao
+            switch (randomNextAction) {
+                case 0:
+                    enemyStateMachine.SetNextState(new EnemyAttack1State());
+                    break;
+                case 1:
+                    enemyStateMachine.SetNextState(new EnemyAttack2State());
+                    break;
+                case 2:
+                    enemyStateMachine.SetNextState(new StallState());
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         if (fixedTime >= stateDuration)

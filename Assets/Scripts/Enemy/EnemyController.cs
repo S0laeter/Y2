@@ -61,11 +61,6 @@ public class EnemyController : MonoBehaviour
         {
             shouldAttack = true;
             shouldApproach = false;
-
-            if (enemyStateMachine.currentState.GetType() == typeof(IdleEnemyState))
-            {
-                enemyStateMachine.SetNextState(new AttackState());
-            }
         }
 
     }
