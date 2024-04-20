@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
+            currentHealth = 0;
             Die();
         }
 
@@ -123,7 +124,11 @@ public class PlayerController : MonoBehaviour
     //die
     public void Die()
     {
+        anim.SetTrigger("Die");
+        Actions.OnPlayerKilled(this.gameObject);
 
+        //destroy player, do this last
+        Destroy(this.gameObject);
     }
 
 

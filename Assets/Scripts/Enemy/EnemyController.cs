@@ -74,7 +74,10 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
-        Actions.OnEnemyKilled(this);
+        anim.SetTrigger("Die");
+        Actions.OnEnemyKilled(this.gameObject);
+
+        //destroy this enemy, do this last
         Destroy(this.gameObject);
     }
 

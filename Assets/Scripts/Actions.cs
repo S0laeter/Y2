@@ -6,6 +6,7 @@ using System;
 public static class Actions
 {
     public static Action<PlayerController> UpdateHealthBar;
+    public static Action<LevelManager> UpdateTimer;
     
     public static Action<float> PassHitboxDamage;
     public static Action<float> PassHitboxKnockback;
@@ -18,5 +19,7 @@ public static class Actions
 
     public static Action<GameObject> LevelSelectButtonPressed;
     
-    public static Action<EnemyController> OnEnemyKilled;
+    public static Action<GameObject> OnEnemyKilled;
+    public static Action<GameObject> OnPlayerKilled;
+    public static Action<LevelManager> OnTimeOut;
 }
