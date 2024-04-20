@@ -417,6 +417,7 @@
 "Assets/Scripts/Player/State.cs"
 "Assets/Scripts/Player/StateMachine.cs"
 "Assets/Scripts/Timer.cs"
+"Assets/Scripts/UI/ButtonSelect.cs"
 "Assets/Scripts/UI/HUDManager.cs"
 "Assets/Scripts/UI/SceneTransition.cs"
 "Assets/Scripts/UI/UIManager.cs"

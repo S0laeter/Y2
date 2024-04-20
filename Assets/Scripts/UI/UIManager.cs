@@ -13,29 +13,19 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
+        //actions
         Actions.LevelSelectButtonPressed += SetLevelToOpen;
     }
     private void DisEnable()
     {
+        //actions
         Actions.LevelSelectButtonPressed -= SetLevelToOpen;
     }
 
-    //this clusterfuck is just to select and open a level..
-    private void SetLevelToOpen(string levelName)
+    //receive the button event and open a level with its name
+    private void SetLevelToOpen(GameObject buttonSelected)
     {
-        levelToOpen = levelName;
-    }
-    public void Map1()
-    {
-        Actions.LevelSelectButtonPressed("Map1");
-    }
-    public void Map2()
-    {
-        Actions.LevelSelectButtonPressed("Map2");
-    }
-    public void Map3()
-    {
-        Actions.LevelSelectButtonPressed("Map3");
+        levelToOpen = buttonSelected.name;
     }
     public void StartMap()
     {

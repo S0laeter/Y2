@@ -16,7 +16,7 @@ public static class Actions
     public static Action OnSkillButtonPressed;
     public static Action OnDashButtonPressed;
 
-    public static Action<string> LevelSelectButtonPressed;
+    public static Action<GameObject> LevelSelectButtonPressed;
     
     public static Action<EnemyController> OnEnemyKilled;
 }
