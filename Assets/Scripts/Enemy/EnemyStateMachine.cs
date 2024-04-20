@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    //public string customName;
-    private EnemyState mainStateType;
+    public string enemyType;
+    private EnemyState mainEnemyStateType;
 
     public EnemyState currentState { get; private set; }
     private EnemyState nextState;
+    
+    private void Awake()
+    {
+        SetNextEnemyStateToMain();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (nextState != null)
         {
-            SetState(nextState);
+            SetCurrentState(nextState);
             nextState = null;
         }
 
@@ -24,7 +29,7 @@ public class EnemyStateMachine : MonoBehaviour
     }
 
     //change state locally
-    private void SetState(EnemyState _newState)
+    private void SetCurrentState(EnemyState _newState)
     {
         if (currentState != null)
         {
@@ -60,20 +65,29 @@ public class EnemyStateMachine : MonoBehaviour
     }
 
     //reset state
-    public void SetNextStateToMain()
+    public void SetNextEnemyStateToMain()
     {
-        nextState = mainStateType;
+        nextState = mainEnemyStateType;
     }
-    private void Awake()
-    {
-        SetNextStateToMain();
-    }
+    
     private void OnValidate()
     {
-        if (mainStateType == null)
+        if (mainEnemyStateType == null)
         {
-            //if (customName == "Enemy")
-            mainStateType = new IdleEnemyState();
+
+            //different enemy types will have different base states
+            switch (enemyType)
+            {
+                case "Enemy1":
+                    mainEnemyStateType = new Enemy1IdleState();
+                    break;
+                case "Enemy2":
+                    mainEnemyStateType = new Enemy2IdleState();
+                    break;
+                default:
+                    break;
+            }
+                
         }
     }
 

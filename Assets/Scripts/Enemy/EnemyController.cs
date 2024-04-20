@@ -12,8 +12,8 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     private float distanceFromPlayer;
 
-    public bool shouldApproach;
-    public bool shouldAttack;
+    public bool closeToPlayer;
+    public bool farFromPlayer;
 
     public float maxHealth;
     public float currentHealth;
@@ -39,28 +39,25 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
+
+
+
+
         if (player == null)
             return;
         
-        
-
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //if too far, run to player
         if (distanceFromPlayer > navMeshAgent.stoppingDistance)
         {
-            shouldApproach = true;
-            shouldAttack = false;
-
-            if (enemyStateMachine.currentState.GetType() == typeof(IdleEnemyState))
-            {
-                enemyStateMachine.SetNextState(new ApproachState());
-            }
+            farFromPlayer = true;
+            closeToPlayer = false;
         }
         else
         {
-            shouldAttack = true;
-            shouldApproach = false;
+            closeToPlayer = true;
+            farFromPlayer = false;
         }
 
     }
@@ -75,7 +72,7 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Die");
-        Actions.OnEnemyKilled(this.gameObject);
+        Actions.OnEnemyKilled(this);
 
         //destroy this enemy, do this last
         Destroy(this.gameObject);

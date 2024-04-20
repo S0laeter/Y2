@@ -29,6 +29,14 @@ public class PlayerController : MonoBehaviour
 
     float turnSmoothVelocity;
 
+    private void OnEnable()
+    {
+        Actions.OnTimeOut += Die;
+    }
+    private void DisEnable()
+    {
+        Actions.OnTimeOut -= Die;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        Actions.UpdateHealthBar(this);
+        Actions.UpdatePlayerHealthBar(this);
 
     }
 
@@ -100,12 +108,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
             //idle animation
             anim.SetTrigger("Idle");
 
             isRunning = false;
-
         }
 
     }
@@ -117,7 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
-            Actions.UpdateHealthBar(this);
+            Actions.UpdatePlayerHealthBar(this);
         }
     }
 
@@ -125,7 +131,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Die");
-        Actions.OnPlayerKilled(this.gameObject);
+        Actions.OnPlayerKilled(this);
 
         //destroy player, do this last
         Destroy(this.gameObject);
