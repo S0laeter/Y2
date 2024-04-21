@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Skill1State.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy2 States\Enemy2Attack1State.cs" />
+    <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Attack5State.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />

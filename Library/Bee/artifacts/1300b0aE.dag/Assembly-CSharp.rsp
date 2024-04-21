@@ -409,6 +409,7 @@
 "Assets/Scripts/Player/Combo State Machine/Combo States/Attack2State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Attack3State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Attack4State.cs"
+"Assets/Scripts/Player/Combo State Machine/Combo States/Attack5State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/DashState.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Skill1State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Skill2State.cs"

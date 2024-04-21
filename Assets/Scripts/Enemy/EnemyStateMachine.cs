@@ -84,10 +84,16 @@ public class EnemyStateMachine : MonoBehaviour
                 case "Enemy2":
                     mainEnemyStateType = new Enemy2IdleState();
                     break;
+                case "Enemy3":
+                    //mainEnemyStateType = new Enemy3IdleState();
+                    break;
+                case "Boss1":
+                    //mainEnemyStateType = new Boss1IdleState();
+                    break;
                 default:
                     break;
             }
-                
+
         }
     }
 

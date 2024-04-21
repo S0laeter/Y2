@@ -37,7 +37,7 @@ public class Attack4State : MeleeBaseState
             //atk button pressed
             if (shouldCombo)
             {
-                stateMachine.SetNextState(new Attack1State());
+                stateMachine.SetNextState(new Attack5State());
             }
             //skill button pressed
             else if (shouldSkill)

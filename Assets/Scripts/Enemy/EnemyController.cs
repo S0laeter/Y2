@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,6 +28,27 @@ public class EnemyController : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+        player = GameObject.FindWithTag("Player");
+
+        //set the first state, because the stupid state machine just doesnt wanna do it for some reason
+        switch (enemyStateMachine.enemyType)
+        {
+            case "Enemy1":
+                enemyStateMachine.SetNextState(new Enemy1IdleState());
+                break;
+            case "Enemy2":
+                enemyStateMachine.SetNextState(new Enemy2IdleState());
+                break;
+            case "Enemy3":
+                //enemyStateMachine.SetNextState(new Enemy3IdleState());
+                break;
+            case "Boss1":
+                //enemyStateMachine.SetNextState(new Boss1IdleState());
+                break;
+            default:
+                break;
+        }
+
         currentHealth = maxHealth;
     }
 
@@ -41,22 +63,25 @@ public class EnemyController : MonoBehaviour
 
 
 
-
-
         if (player == null)
             return;
         
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
-        //if too far, run to player
-        if (distanceFromPlayer > navMeshAgent.stoppingDistance)
+        //choose actions based on distance
+        if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
+        {
+            closeToPlayer = true;
+            farFromPlayer = false;
+        }
+        else if (distanceFromPlayer > navMeshAgent.stoppingDistance)
         {
             farFromPlayer = true;
             closeToPlayer = false;
         }
         else
         {
-            closeToPlayer = true;
+            closeToPlayer = false;
             farFromPlayer = false;
         }
 
