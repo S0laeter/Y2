@@ -49,9 +49,13 @@ public class ComboCharacter : MonoBehaviour
         float damage = attackPower * setMultiplier;
         Actions.PassHitboxDamage(damage);
     }
-    public void PassHitboxKnockback(float setKnockback)
+    public void PassHitboxHorizontalKnockback(float setKnockback)
     {
-        Actions.PassHitboxKnockback(setKnockback);
+        Actions.PassHitboxHorizontalKnockback(setKnockback);
+    }
+    public void PassHitboxVerticalKnockback(float setKnockback)
+    {
+        Actions.PassHitboxVerticalKnockback(setKnockback);
     }
     //use this to phase through enemies during certain attacks
     public void EnableIgnoreCollisionWithEnemy()
@@ -76,7 +80,8 @@ public class ComboCharacter : MonoBehaviour
         //pass the damage and knockback values as well
         float damage = attackPower * 20f;
         Actions.PassProjectileDamage(damage);
-        Actions.PassProjectileKnockback(3f);
+        Actions.PassProjectileHorizontalKnockback(10f);
+        Actions.PassProjectileVerticalKnockback(0f);
     }
 
 

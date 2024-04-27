@@ -7,20 +7,23 @@ public class HitboxManager : MonoBehaviour
 {
 
     private float damage;
-    private float knockback;
+    private float horizontalKnockback;
+    private float verticalKnockback;
 
     private void OnEnable()
     {
         //subscribing to actions
         Actions.PassHitboxDamage += SetDamage;
-        Actions.PassHitboxKnockback += SetKnockback;
+        Actions.PassHitboxHorizontalKnockback += SetHorizontalKnockback;
+        Actions.PassHitboxVerticalKnockback += SetVerticalKnockback;
     }
 
     private void OnDisable()
     {
         //unsubscribing to actions
         Actions.PassHitboxDamage -= SetDamage;
-        Actions.PassHitboxKnockback -= SetKnockback;
+        Actions.PassHitboxHorizontalKnockback -= SetHorizontalKnockback;
+        Actions.PassHitboxVerticalKnockback -= SetVerticalKnockback;
     }
 
     //receive hitbox damage and knockback
@@ -28,9 +31,13 @@ public class HitboxManager : MonoBehaviour
     {
         damage = hitboxDamage;
     }
-    private void SetKnockback(float hitboxKnockback)
+    private void SetHorizontalKnockback(float hitboxHorizontalKnockback)
     {
-        knockback = hitboxKnockback;
+        horizontalKnockback = hitboxHorizontalKnockback;
+    }
+    private void SetVerticalKnockback(float hitboxVerticalKnockback)
+    {
+        verticalKnockback = hitboxVerticalKnockback;
     }
 
     //when hit enemy
@@ -38,8 +45,13 @@ public class HitboxManager : MonoBehaviour
     {
         if (enemy.tag == "Enemy")
         {
+
+            //damage enemy
             enemy.GetComponent<EnemyController>().TakeDamage(damage);
-            enemy.GetComponent<Rigidbody>().velocity = this.transform.forward * knockback;
+
+            //knockback enemy
+            enemy.GetComponent<Rigidbody>().velocity = this.transform.forward * horizontalKnockback;
+
         }
     }
 

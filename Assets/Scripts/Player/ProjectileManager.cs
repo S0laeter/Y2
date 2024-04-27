@@ -7,7 +7,8 @@ public class ProjectileHitboxManager : MonoBehaviour
     public float autoDestroyTime;
 
     private float damage;
-    private float knockback;
+    private float horizontalKnockback;
+    private float verticalKnockback;
 
     private void OnEnable()
     {
@@ -15,14 +16,16 @@ public class ProjectileHitboxManager : MonoBehaviour
 
         //subscribing to actions
         Actions.PassProjectileDamage += SetDamage;
-        Actions.PassProjectileKnockback += SetKnockback;
+        Actions.PassProjectileHorizontalKnockback += SetHorizontalKnockback;
+        Actions.PassProjectileVerticalKnockback += SetVerticalKnockback;
     }
 
     private void OnDisable()
     {
         //unsubscribing to actions
         Actions.PassProjectileDamage -= SetDamage;
-        Actions.PassProjectileKnockback -= SetKnockback;
+        Actions.PassProjectileHorizontalKnockback -= SetHorizontalKnockback;
+        Actions.PassProjectileVerticalKnockback += SetVerticalKnockback;
     }
 
     //receive hitbox damage and knockback
@@ -30,9 +33,13 @@ public class ProjectileHitboxManager : MonoBehaviour
     {
         damage = hitboxDamage;
     }
-    private void SetKnockback(float hitboxKnockback)
+    private void SetHorizontalKnockback(float hitboxHorizontalKnockback)
     {
-        knockback = hitboxKnockback;
+        horizontalKnockback = hitboxHorizontalKnockback;
+    }
+    private void SetVerticalKnockback(float hitboxVerticalKnockback)
+    {
+        verticalKnockback = hitboxVerticalKnockback;
     }
 
     // Update is called once per frame
@@ -46,8 +53,13 @@ public class ProjectileHitboxManager : MonoBehaviour
     {
         if (enemy.tag == "Enemy")
         {
+
+            //damage enemy
             enemy.GetComponent<EnemyController>().TakeDamage(damage);
-            enemy.GetComponent<Rigidbody>().velocity = this.transform.forward * knockback;
+
+            //knockback enemy
+
+
         }
     }
 

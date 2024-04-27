@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 joystickDirection;
     
-    public float moveSpeed;
+    private float moveSpeed;
     public bool isRunning;
 
     public bool isAttacking;
@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        moveSpeed = 250f;
 
         currentHealth = maxHealth;
 
