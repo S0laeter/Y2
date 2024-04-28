@@ -53,13 +53,13 @@ public class ProjectileHitboxManager : MonoBehaviour
     {
         if (enemy.tag == "Enemy")
         {
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             //damage enemy
-            enemy.GetComponent<EnemyController>().TakeDamage(damage);
+            enemyController.TakeDamage(damage);
 
             //knockback enemy
-
-
+            enemyController.StartCoroutine(enemyController.TakeKnockback(horizontalKnockback, verticalKnockback));
         }
     }
 

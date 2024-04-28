@@ -45,13 +45,13 @@ public class HitboxManager : MonoBehaviour
     {
         if (enemy.tag == "Enemy")
         {
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             //damage enemy
-            enemy.GetComponent<EnemyController>().TakeDamage(damage);
+            enemyController.TakeDamage(damage);
 
             //knockback enemy
-            enemy.GetComponent<Rigidbody>().velocity = this.transform.forward * horizontalKnockback;
-
+            enemyController.StartCoroutine(enemyController.TakeKnockback(horizontalKnockback, verticalKnockback));
         }
     }
 

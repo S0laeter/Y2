@@ -10,16 +10,23 @@ public class Enemy1ApproachState : EnemyBaseState
 
         stateDuration = 1f;
         randomNextAction = Random.Range(0, 3);
-
-        enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
+        
         enemyController.anim.SetTrigger("Approach");
-
+        
         Debug.Log("enemy approaching");
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
+
+        //if navmesh is on, chase player. if not, return
+        if (enemyController.navMeshAgent.enabled == true)
+        {
+            enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
+        }
+        else
+            return;
 
         //transition to next state, only based on condition
         if (enemyController.closeToPlayer)

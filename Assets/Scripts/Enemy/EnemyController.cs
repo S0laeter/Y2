@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     private EnemyStateMachine enemyStateMachine;
     public NavMeshAgent navMeshAgent;
     public Animator anim;
+    private Rigidbody rb;
 
     public GameObject player;
     private float distanceFromPlayer;
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
         enemyStateMachine = GetComponent<EnemyStateMachine>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 
         player = GameObject.FindWithTag("Player");
 
@@ -52,8 +54,8 @@ public class EnemyController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
 
         if (currentHealth <= 0f)
@@ -62,10 +64,8 @@ public class EnemyController : MonoBehaviour
         }
 
 
-
         if (player == null)
             return;
-        
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //choose actions based on distance
@@ -92,6 +92,29 @@ public class EnemyController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
         Debug.Log(this.name + " has taken " + damage + " damage");
+    }
+
+    public IEnumerator TakeKnockback(float horizontalKnockback, float verticalKnockback)
+    {
+        //only low weight mobs will take knockback
+        if (rb.mass <= 10f)
+        {
+            //disable navmesh agent
+            navMeshAgent.enabled = false;
+
+            //knockback
+            rb.AddForce(transform.forward * -horizontalKnockback);
+            rb.AddForce(transform.up * verticalKnockback);
+
+            Debug.Log(this.name + " has taken " + horizontalKnockback + " knockback and " + verticalKnockback + " knockup");
+
+            //wait while knockback
+            yield return new WaitForSeconds(0.1f);
+
+            //enable navmesh agent
+            navMeshAgent.Warp(this.transform.position);
+            navMeshAgent.enabled = true;
+        }
     }
 
     public void Die()
