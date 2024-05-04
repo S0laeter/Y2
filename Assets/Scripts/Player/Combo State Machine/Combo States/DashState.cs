@@ -12,6 +12,9 @@ public class DashState : MeleeBaseState
         dashDuration = 0.25f;
         dashCooldown = 0.5f;
 
+        //just to make sure dash canceling doesn't break anything
+        comboCharacter.DisableIgnoreCollisionWithEnemy();
+
         playerController.anim.SetTrigger("Dash");
         playerController.StartCoroutine(playerController.DashTiming(dashDuration));
         playerController.StartCoroutine(playerController.DashCooldown(dashCooldown));
