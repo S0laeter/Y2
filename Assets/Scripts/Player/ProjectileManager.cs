@@ -7,8 +7,8 @@ public class ProjectileHitboxManager : MonoBehaviour
     public float autoDestroyTime;
 
     private float damage;
-    private float horizontalKnockback;
-    private float verticalKnockback;
+    public float horizontalKnockback;
+    public float verticalKnockback;
 
     private void OnEnable()
     {
@@ -16,30 +16,18 @@ public class ProjectileHitboxManager : MonoBehaviour
 
         //subscribing to actions
         Actions.PassProjectileDamage += SetDamage;
-        Actions.PassProjectileHorizontalKnockback += SetHorizontalKnockback;
-        Actions.PassProjectileVerticalKnockback += SetVerticalKnockback;
     }
 
     private void OnDisable()
     {
         //unsubscribing to actions
         Actions.PassProjectileDamage -= SetDamage;
-        Actions.PassProjectileHorizontalKnockback -= SetHorizontalKnockback;
-        Actions.PassProjectileVerticalKnockback += SetVerticalKnockback;
     }
 
     //receive hitbox damage and knockback
     private void SetDamage(float hitboxDamage)
     {
         damage = hitboxDamage;
-    }
-    private void SetHorizontalKnockback(float hitboxHorizontalKnockback)
-    {
-        horizontalKnockback = hitboxHorizontalKnockback;
-    }
-    private void SetVerticalKnockback(float hitboxVerticalKnockback)
-    {
-        verticalKnockback = hitboxVerticalKnockback;
     }
 
     // Update is called once per frame

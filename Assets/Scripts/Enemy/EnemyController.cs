@@ -9,13 +9,16 @@ public class EnemyController : MonoBehaviour
     private EnemyStateMachine enemyStateMachine;
     public NavMeshAgent navMeshAgent;
     public Animator anim;
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     public GameObject player;
     private float distanceFromPlayer;
 
     public bool closeToPlayer;
     public bool farFromPlayer;
+
+    private float attackPower;
+    public float attackDamage;
 
     public float maxHealth;
     public float currentHealth;
@@ -31,6 +34,8 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         player = GameObject.FindWithTag("Player");
+
+        attackPower = 1f;
 
         //set the first state, because the stupid state machine just doesnt wanna do it for some reason
         switch (enemyStateMachine.enemyType)
@@ -55,7 +60,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
 
         if (currentHealth <= 0f)
@@ -69,23 +74,30 @@ public class EnemyController : MonoBehaviour
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //choose actions based on distance
-        if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
-        {
-            closeToPlayer = true;
-            farFromPlayer = false;
-        }
-        else if (distanceFromPlayer > navMeshAgent.stoppingDistance)
+        if (distanceFromPlayer > navMeshAgent.stoppingDistance)
         {
             farFromPlayer = true;
             closeToPlayer = false;
         }
-        else
+        else if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
         {
-            closeToPlayer = false;
+            closeToPlayer = true;
             farFromPlayer = false;
         }
 
     }
+
+
+
+
+    //animation event to update attack damage
+    public void PassHitboxDamage(float multiplier)
+    {
+        attackDamage = attackPower * multiplier;
+    }
+
+
+
 
     public void TakeDamage(float damage)
     {
@@ -137,8 +149,10 @@ public class EnemyController : MonoBehaviour
         relativePosition.y = 0f;
         //rotate to player, smoothly
         Quaternion rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
-        this.transform.rotation = Quaternion.Slerp(this. transform.rotation, rotation, 0.2f);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, 0.2f);
 
     }
+
+
 
 }

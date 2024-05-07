@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Player\HitboxManager.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Scripts\Player\ComboCharacter.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyHitboxManager.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Attack4State.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Skill2State.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy2 States\Enemy2Attack1State.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Attack5State.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1Attack3State.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -111,8 +113,8 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1Attack2State.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\Scripts\TimerManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\Scripts\TimerManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy2 States\Enemy2IdleState.cs" />

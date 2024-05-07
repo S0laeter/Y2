@@ -53,10 +53,7 @@ public class ComboCharacter : MonoBehaviour
     {
         Actions.PassHitboxHorizontalKnockback(setKnockback);
     }
-    public void PassHitboxVerticalKnockback(float setKnockback)
-    {
-        Actions.PassHitboxVerticalKnockback(setKnockback);
-    }
+
     //use this to phase through enemies during certain attacks
     public void EnableIgnoreCollisionWithEnemy()
     {
@@ -77,11 +74,9 @@ public class ComboCharacter : MonoBehaviour
         Rigidbody swordwaveRb = swordwave.GetComponent<Rigidbody>();
         swordwaveRb.velocity = transform.TransformDirection(Vector3.forward * 20f);
 
-        //pass the damage and knockback values as well
+        //pass the damage
         float damage = attackPower * 20f;
         Actions.PassProjectileDamage(damage);
-        Actions.PassProjectileHorizontalKnockback(10f);
-        Actions.PassProjectileVerticalKnockback(0f);
     }
 
 

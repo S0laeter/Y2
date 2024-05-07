@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoDestroyTime: 2
+  horizontalKnockback: 10000
+  verticalKnockback: 0
 --- !u!33 &3815523836276711936
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -8,12 +8,12 @@ public class Enemy1Attack1State : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        stateDuration = 2f;
+        stateDuration = 2.25f;
 
         enemyController.LookAtPlayer();
         enemyController.anim.SetTrigger("Attack1");
 
-        Debug.Log("enemy doing attack 1");
+        Debug.Log("enemy 1 doing attack 1");
     }
 
     public override void OnUpdate()

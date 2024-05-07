@@ -118,6 +118,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //get knocked back from heavy hit
+    public void TakeHeavyHit()
+    {
+        if (!isDashing)
+        {
+            //GOTTA ADD STAGGER ANIMATION LATER
+        }
+        
+    }
+
     //take damage, but invincible while dashing
     public void TakeDamage(float damage)
     {
