@@ -11,8 +11,6 @@ public class Enemy1ApproachState : EnemyBaseState
         randomNextAction = Random.Range(0, 5);
 
         enemyController.anim.SetTrigger("Approach");
-
-        Debug.Log("enemy approaching");
     }
 
     public override void OnUpdate()

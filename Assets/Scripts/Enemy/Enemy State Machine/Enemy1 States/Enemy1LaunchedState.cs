@@ -9,7 +9,7 @@ public class Enemy1LaunchedState : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
         
-        stateDuration = 1.5f;
+        stateDuration = 2f;
 
         enemyController.anim.SetTrigger("Launched");
 

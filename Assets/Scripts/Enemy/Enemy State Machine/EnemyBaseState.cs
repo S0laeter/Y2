@@ -22,25 +22,29 @@ public class EnemyBaseState : EnemyState
         enemyController = GetComponent<EnemyController>();
 
         //subscribing to actions
-
+        Actions.OnEnemyKilled += Die;
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
 
-        //staggered upon being hit if armor is broken
-        if (enemyController.brokenArmor == true)
+        //when not already dead, and gets hit
+        if (enemyStateMachine.currentState.GetType() != typeof(EnemyDeathState))
         {
-            if (enemyController.receivedLightHit)
+            //staggered upon being hit if armor is broken
+            if (enemyController.shouldGetStaggered)
             {
+                enemyController.shouldGetStaggered = false;
                 enemyStateMachine.SetNextState(new Enemy1StaggeredState());
             }
-            else if (enemyController.receivedHeavyHit)
+            else if (enemyController.shouldGetLaunched)
             {
+                enemyController.shouldGetLaunched = false;
                 enemyStateMachine.SetNextState(new Enemy1LaunchedState());
             }
         }
+
     }
 
     public override void OnExit()
@@ -48,9 +52,13 @@ public class EnemyBaseState : EnemyState
         base.OnExit();
 
         //unsubscribing to actions
-
+        Actions.OnEnemyKilled -= Die;
     }
 
+    protected void Die(EnemyController enemyController)
+    {
+        enemyStateMachine.SetNextState(new EnemyDeathState());
+    }
 
 
 }

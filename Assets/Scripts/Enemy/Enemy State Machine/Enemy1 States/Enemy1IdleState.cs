@@ -11,8 +11,6 @@ public class Enemy1IdleState : EnemyBaseState
         randomNextAction = Random.Range(0, 4);
 
         enemyController.anim.SetTrigger("Idle");
-
-        Debug.Log("enemy in idle");
     }
 
     public override void OnUpdate()

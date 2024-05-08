@@ -402,6 +402,7 @@
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/Enemy1LaunchedState.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/Enemy1StaggeredState.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/Enemy1StallState.cs"
+"Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/EnemyDeathState.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy2 States/Enemy2ApproachState.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy2 States/Enemy2Attack1State.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy2 States/Enemy2Attack2State.cs"

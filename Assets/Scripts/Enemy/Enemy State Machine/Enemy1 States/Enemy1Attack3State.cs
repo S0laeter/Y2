@@ -12,8 +12,6 @@ public class Enemy1Attack3State : EnemyBaseState
 
         enemyController.LookAtPlayer();
         enemyController.anim.SetTrigger("Attack3");
-
-        Debug.Log("enemy 1 doing attack 3");
     }
 
     public override void OnUpdate()

@@ -13,8 +13,6 @@ public class Enemy1StallState : EnemyBaseState
         randomNextAction = Random.Range(0, 3);
 
         enemyController.anim.SetTrigger("Stall");
-
-        Debug.Log("enemy backing away for " + stateDuration + " seconds");
     }
 
     public override void OnUpdate()

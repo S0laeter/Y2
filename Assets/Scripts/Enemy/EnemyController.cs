@@ -28,9 +28,11 @@ public class EnemyController : MonoBehaviour
     public float maxArmor;
     public float currentArmor;
     public bool brokenArmor;
+    private bool canBrokenArmor;
+    private float brokenArmorDuration;
 
-    public bool receivedLightHit;
-    public bool receivedHeavyHit;
+    public bool shouldGetStaggered;
+    public bool shouldGetLaunched;
 
     public float extraTimeOnDeath;
 
@@ -60,41 +62,56 @@ public class EnemyController : MonoBehaviour
         }
         
         attackPower = 1f;
+
         currentHealth = maxHealth;
         currentArmor = maxArmor;
 
         brokenArmor = false;
-        receivedLightHit = false;
+        canBrokenArmor = true;
+        brokenArmorDuration = 5f;
+
+        shouldGetStaggered = false;
+        shouldGetLaunched = false;
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        //regen armor over time
-        currentArmor = Mathf.Clamp(currentArmor + 2 * Time.deltaTime, 0f, maxArmor);
-
-        //check health and armor
-        if (currentHealth <= 0f)
+        
+        //check health
+        //if 0 health left and is not already dead, go die
+        if (currentHealth <= 0f && enemyStateMachine.currentState.GetType() != typeof(EnemyDeathState))
         {
-            Die();
+            StartCoroutine(Die());
         }
-        if (currentArmor <= 10f)
+
+        //check armor
+        //if not broken armor, regen it
+        if (!brokenArmor)
+        {
+            currentArmor = Mathf.Clamp(currentArmor + 1f * Time.deltaTime, 0f, maxArmor);
+        }
+        //if broken armor, set the timer
+        if (Mathf.Floor(currentArmor) <= 0f && canBrokenArmor == true)
         {
             StartCoroutine(BrokenArmorState());
         }
 
 
+
+        //enemy ai stuffs
         if (player == null)
             return;
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //choose actions based on distance
-        if (distanceFromPlayer > navMeshAgent.stoppingDistance)
+        //dont just use the navmesh's stopping distance btw, its broken as fuck, add a bit of distance to it instead
+        if (distanceFromPlayer > (navMeshAgent.stoppingDistance + 0.5f))
         {
             farFromPlayer = true;
             closeToPlayer = false;
         }
-        else if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
+        else if (distanceFromPlayer <= (navMeshAgent.stoppingDistance + 0.5f))
         {
             closeToPlayer = true;
             farFromPlayer = false;
@@ -104,11 +121,16 @@ public class EnemyController : MonoBehaviour
 
 
     //broken armor timer
-    public IEnumerator BrokenArmorState()
+    private IEnumerator BrokenArmorState()
     {
+        canBrokenArmor = false;
         brokenArmor = true;
-        yield return new WaitForSeconds(4f);
+
+        yield return new WaitForSeconds(brokenArmorDuration);
+
+        currentArmor = maxArmor;
         brokenArmor = false;
+        canBrokenArmor = true;
     }
 
 
@@ -124,32 +146,34 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public void TakeDamage(float damage, string hitboxType)
+    public void TakeDamage(float playerDamage, string playerHitboxType)
     {
         //deduct health
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
-        //deduct armor, but only when armor is not broken
-        if (brokenArmor == false)
+        currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
+
+        //if armor not broken, reduce armor
+        if (!brokenArmor)
         {
-            currentArmor = Mathf.Clamp(currentArmor - damage, 0f, maxArmor);
+            currentArmor = Mathf.Clamp(currentArmor - playerDamage, 0f, maxArmor);
+        }
+        //if armor already broken, get staggered
+        else if (brokenArmor)
+        {
+            //which kind of damage received, for the stagger states
+            switch (playerHitboxType)
+            {
+                case "Hitbox":
+                    shouldGetStaggered = true;
+                    break;
+                case "HitboxHeavy":
+                    shouldGetLaunched = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        //which kind of damage received, for the stagger states
-        switch (hitboxType)
-        {
-            case "Hitbox":
-                receivedLightHit = true;
-                receivedLightHit = false;
-                break;
-            case "HitboxHeavy":
-                receivedHeavyHit = true;
-                receivedHeavyHit = false;
-                break;
-            default:
-                break;
-        }
-
-        Debug.Log(this.name + " has taken " + damage + " damage");
+        Debug.Log(this.name + " has taken " + playerDamage + " damage");
     }
     public IEnumerator TakeKnockback(float horizontalKnockback)
     {
@@ -177,10 +201,13 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public void Die()
+    public IEnumerator Die()
     {
-        anim.SetTrigger("Die");
         Actions.OnEnemyKilled(this);
+        
+        //death animation is already handled by the statemachine btw
+        
+        yield return new WaitForSeconds(1f);
 
         //destroy this enemy, do this last
         Destroy(this.gameObject);
@@ -201,6 +228,15 @@ public class EnemyController : MonoBehaviour
 
     }
 
+
+
+
+
+    //just in case we need to wait
+    private IEnumerator WaitForSec(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
 
 
 }

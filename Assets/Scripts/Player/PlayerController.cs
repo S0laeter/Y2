@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
     //die
     public void Die()
     {
-        anim.SetTrigger("Die");
+        anim.SetTrigger("Death");
         Actions.OnPlayerKilled(this);
 
         //destroy player, do this last
@@ -204,6 +204,15 @@ public class PlayerController : MonoBehaviour
 
         //clear array for next lock on
         System.Array.Clear(enemiesInRange, 0, enemiesInRange.Length);
+    }
+
+
+
+
+    //just in case we need to wait
+    private IEnumerator WaitForSec(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 
 }
