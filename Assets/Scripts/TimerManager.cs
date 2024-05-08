@@ -23,6 +23,7 @@ public class TimerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = maxTime;
         StartCoroutine(TimerCountdown());
     }
 
@@ -38,8 +39,6 @@ public class TimerManager : MonoBehaviour
     //timer countdown, do it this way to only update the clock once every second instead of every frame
     public IEnumerator TimerCountdown()
     {
-        currentTime = maxTime;
-
         while (currentTime > 0)
         {
             yield return new WaitForSeconds(1f);

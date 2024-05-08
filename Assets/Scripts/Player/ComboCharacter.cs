@@ -51,7 +51,7 @@ public class ComboCharacter : MonoBehaviour
     }
     public void PassHitboxHorizontalKnockback(float setKnockback)
     {
-        Actions.PassHitboxHorizontalKnockback(setKnockback);
+        Actions.PassHitboxKnockback(setKnockback);
     }
 
     //use this to phase through enemies during certain attacks

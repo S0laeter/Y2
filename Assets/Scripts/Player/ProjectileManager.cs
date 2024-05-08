@@ -7,8 +7,7 @@ public class ProjectileHitboxManager : MonoBehaviour
     public float autoDestroyTime;
 
     private float damage;
-    public float horizontalKnockback;
-    public float verticalKnockback;
+    public float knockback;
 
     private void OnEnable()
     {
@@ -30,12 +29,6 @@ public class ProjectileHitboxManager : MonoBehaviour
         damage = hitboxDamage;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     //when hit enemy
     private void OnTriggerEnter(Collider enemy)
     {
@@ -43,11 +36,9 @@ public class ProjectileHitboxManager : MonoBehaviour
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-            //damage enemy
-            enemyController.TakeDamage(damage);
-
-            //knockback enemy
-            enemyController.StartCoroutine(enemyController.TakeKnockback(horizontalKnockback, verticalKnockback));
+            //damage and knockback
+            enemyController.TakeDamage(damage, this.name);
+            enemyController.StartCoroutine(enemyController.TakeKnockback(knockback));
         }
     }
 

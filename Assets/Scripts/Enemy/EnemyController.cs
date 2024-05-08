@@ -1,5 +1,7 @@
+using Autodesk.Fbx;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +25,13 @@ public class EnemyController : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
+    public float maxArmor;
+    public float currentArmor;
+    public bool brokenArmor;
+
+    public bool receivedLightHit;
+    public bool receivedHeavyHit;
+
     public float extraTimeOnDeath;
 
     // Start is called before the first frame update
@@ -32,10 +41,7 @@ public class EnemyController : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-
         player = GameObject.FindWithTag("Player");
-
-        attackPower = 1f;
 
         //set the first state, because the stupid state machine just doesnt wanna do it for some reason
         switch (enemyStateMachine.enemyType)
@@ -49,23 +55,32 @@ public class EnemyController : MonoBehaviour
             case "Enemy3":
                 //enemyStateMachine.SetNextState(new Enemy3IdleState());
                 break;
-            case "Boss1":
-                //enemyStateMachine.SetNextState(new Boss1IdleState());
-                break;
             default:
                 break;
         }
-
+        
+        attackPower = 1f;
         currentHealth = maxHealth;
+        currentArmor = maxArmor;
+
+        brokenArmor = false;
+        receivedLightHit = false;
     }
 
 
     void Update()
     {
+        //regen armor over time
+        currentArmor = Mathf.Clamp(currentArmor + 2 * Time.deltaTime, 0f, maxArmor);
 
+        //check health and armor
         if (currentHealth <= 0f)
         {
             Die();
+        }
+        if (currentArmor <= 10f)
+        {
+            StartCoroutine(BrokenArmorState());
         }
 
 
@@ -88,6 +103,15 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    //broken armor timer
+    public IEnumerator BrokenArmorState()
+    {
+        brokenArmor = true;
+        yield return new WaitForSeconds(4f);
+        brokenArmor = false;
+    }
+
+
 
 
     //animation event to update attack damage
@@ -99,14 +123,35 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public void TakeDamage(float damage)
+
+    public void TakeDamage(float damage, string hitboxType)
     {
+        //deduct health
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
+        //deduct armor, but only when armor is not broken
+        if (brokenArmor == false)
+        {
+            currentArmor = Mathf.Clamp(currentArmor - damage, 0f, maxArmor);
+        }
+
+        //which kind of damage received, for the stagger states
+        switch (hitboxType)
+        {
+            case "Hitbox":
+                receivedLightHit = true;
+                receivedLightHit = false;
+                break;
+            case "HitboxHeavy":
+                receivedHeavyHit = true;
+                receivedHeavyHit = false;
+                break;
+            default:
+                break;
+        }
 
         Debug.Log(this.name + " has taken " + damage + " damage");
     }
-
-    public IEnumerator TakeKnockback(float horizontalKnockback, float verticalKnockback)
+    public IEnumerator TakeKnockback(float horizontalKnockback)
     {
         //only low weight mobs will take knockback
         if (rb.mass <= 10f)
@@ -116,18 +161,21 @@ public class EnemyController : MonoBehaviour
 
             //knockback
             rb.AddForce(transform.forward * -horizontalKnockback);
-            rb.AddForce(transform.up * verticalKnockback);
 
-            Debug.Log(this.name + " has taken " + horizontalKnockback + " knockback and " + verticalKnockback + " knockup");
+            Debug.Log(this.name + " has taken " + horizontalKnockback + " knockback");
 
             //wait while knockback
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
 
             //enable navmesh agent
             navMeshAgent.Warp(this.transform.position);
             navMeshAgent.enabled = true;
         }
     }
+
+
+
+
 
     public void Die()
     {

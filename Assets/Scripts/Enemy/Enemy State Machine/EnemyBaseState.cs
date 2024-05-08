@@ -28,7 +28,19 @@ public class EnemyBaseState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        
+
+        //staggered upon being hit if armor is broken
+        if (enemyController.brokenArmor == true)
+        {
+            if (enemyController.receivedLightHit)
+            {
+                enemyStateMachine.SetNextState(new Enemy1StaggeredState());
+            }
+            else if (enemyController.receivedHeavyHit)
+            {
+                enemyStateMachine.SetNextState(new Enemy1LaunchedState());
+            }
+        }
     }
 
     public override void OnExit()

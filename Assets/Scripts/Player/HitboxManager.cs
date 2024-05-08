@@ -6,21 +6,20 @@ using UnityEngine;
 public class HitboxManager : MonoBehaviour
 {
     private float damage;
-    private float horizontalKnockback;
-    private float verticalKnockback = 10000f;
+    private float knockback;
 
     private void OnEnable()
     {
         //subscribing to actions
         Actions.PassHitboxDamage += SetDamage;
-        Actions.PassHitboxHorizontalKnockback += SetHorizontalKnockback;
+        Actions.PassHitboxKnockback += SetKnockback;
     }
 
     private void OnDisable()
     {
         //unsubscribing to actions
         Actions.PassHitboxDamage -= SetDamage;
-        Actions.PassHitboxHorizontalKnockback -= SetHorizontalKnockback;
+        Actions.PassHitboxKnockback -= SetKnockback;
     }
 
     //receive hitbox damage and knockback
@@ -28,9 +27,9 @@ public class HitboxManager : MonoBehaviour
     {
         damage = hitboxDamage;
     }
-    private void SetHorizontalKnockback(float hitboxHorizontalKnockback)
+    private void SetKnockback(float hitboxHorizontalKnockback)
     {
-        horizontalKnockback = hitboxHorizontalKnockback;
+        knockback = hitboxHorizontalKnockback;
     }
 
     //when hit enemy
@@ -40,22 +39,10 @@ public class HitboxManager : MonoBehaviour
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-            //if normal hit, deal damage
-            //if launch hit, deal damage and stagger
-            switch (this.name)
-            {
-                case "Hitbox":
-                    enemyController.TakeDamage(damage);
-                    enemyController.StartCoroutine(enemyController.TakeKnockback(horizontalKnockback, 0));
-                    break;
-                case "HitboxLaunch":
-                    enemyController.TakeDamage(damage);
-                    enemyController.StartCoroutine(enemyController.TakeKnockback(horizontalKnockback, verticalKnockback));
-                    break;
-                default:
-                    break;
-            }
-            
+            //damage and knockback
+            enemyController.TakeDamage(damage, this.name);
+            enemyController.StartCoroutine(enemyController.TakeKnockback(knockback));
+
         }
     }
 
