@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         {
 
             //run animation
-            anim.SetTrigger("Run");
+            anim.SetBool("Running", true);
 
             //look rotation
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //idle animation
+            anim.SetBool("Running", false);
             anim.SetTrigger("Idle");
 
             isRunning = false;
