@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "E:\\Unity stuffs\\Y2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|E:\\Unity stuffs\\Y2\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\player\\combo state machine\\combo states\\attack1state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\combo state machine\\combo states\\attack1state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\combocharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|E:\\Unity stuffs\\Y2\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -26,36 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Attack1State.cs",
+              "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
+              "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T07:21:42.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EnemyController.cs",
               "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Enemy\\EnemyController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
               "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Enemy\\EnemyController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAYwGsAAAB0AAAA",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAkwGsAAAB0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T14:20:28.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HitboxManager.cs",
               "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\HitboxManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\HitboxManager.cs",
               "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\HitboxManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\HitboxManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAiAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALNSURBVDhP7VNdSFNhGH7POds8znNy080/BIXldAbJcEkXiaChXRRCCIGK6E1CV/lDeZHl8EowxYtAIgxC7CIvRIe48kLDC5Vz41EmbhpDS51uudOmubNztr7vuILqoiDoyufie3nP9/B8z/tz4Bz/DCoRYc23xlTdqUpXl6rZ6NUoa6g0sJabFrasrkzjmnJ9xZxgMKhnKhi9\u002B6JbI8wJkc7OTuN28fYF\u002BbIMh/OHIuaQ\u002BMAQT8RWJM9JGolTkSpOikkcQRKcilINJigggzyI72gVPRgOhw2RWGRGDWouQkVaExQg8MF7\u002BW7nprNxZXfFTFM0FGcWA5PEABKFiBRxtJS2NGGxoYWhG/Nb85neI68PifLWXGu559BDH50cuUmCHN18vNmrOFz8uHjFG/Ca4/E41JhrwiU5JU\u002BtOVZ7gaHAnsVkvU5NTY3G4rHVbDZbMDJGIAhC0Gq0fJGxKMomsdjWLpLZwloK6l7UTda/rI/bHXZfKBR6hXqVlrj6CYEvgcm\u002Bt31xU69p6iB8kB0QAp\u002BaR5tx3pOgnPVww78BGpUGdFrdMsuyTTqd7rNymwByTqKHMvxhP30sHqMPQA8vDGf4Qj5KlEVkkGByn\u002BQqJhRBSZZwANRwJf6K7wMYeD9QPs6PQzQWvTayOOJsGGswcDscyDH5Lh4U5iqC\u002Bfp8OJVOgd/ncfobUlJSBOTqYe2lWr7CVIEfXjUbzQ\u002B6KruEQmMhoIE4UF\u002BfYa5iqbqoGlz7LnAfuM1tb9p6cM5oGEAlwl5oz02S5BiivQsEAwa0CYUkkG7nPeekP\u002Bg3Tq9Ps6jmOc8jzzLWUtZm6cNS94xrphEttzlNmwaWDAskq5NxaSBKoqP9evstzPsbKIIYs\u002BuzHWh1OiZWJ2BH2AGKpMCUboI8fd5s/\u002B3\u002BpgTtj/jxp9BAP0fBRkqkDfXEhiZro\u002BKUTY7K988Y5/g/APgG2Ocp0eSbumcAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-05-07T09:09:09.805Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T09:09:09.805Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ComboCharacter.cs",
               "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\ComboCharacter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\ComboCharacter.cs",
@@ -68,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",

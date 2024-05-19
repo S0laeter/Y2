@@ -10,7 +10,7 @@ public class Attack1State : MeleeBaseState
         base.OnEnter(_stateMachine);
 
         attackIndex = 1;
-        attackDuration = 0.5f;
+        attackDuration = 1f;
 
         //lock on, triggers animation, set isAttacking
         playerController.SimpleLockOn();
