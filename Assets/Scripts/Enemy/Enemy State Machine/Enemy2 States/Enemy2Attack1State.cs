@@ -8,12 +8,10 @@ public class Enemy2Attack1State : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        stateDuration = 2f;
+        stateDuration = 2.5f;
 
         enemyController.LookAtPlayer();
         enemyController.anim.SetTrigger("Attack1");
-
-        Debug.Log("enemy doing attack 1");
     }
 
     public override void OnUpdate()
@@ -26,10 +24,17 @@ public class Enemy2Attack1State : EnemyBaseState
         if (fixedTime >= stateDuration)
         {
             //transition to next state, after stateDuration with no condition
-            enemyStateMachine.SetNextState(new Enemy2StallState());
+            
 
             //transition to next state, based on both stateDuration and condition
-
+            if (enemyController.farFromPlayer)
+            {
+                enemyStateMachine.SetNextState(new Enemy2ApproachState());
+            }
+            else if (enemyController.closeToPlayer)
+            {
+                enemyStateMachine.SetNextState(new Enemy2StallState());
+            }
 
         }
     }

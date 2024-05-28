@@ -10,7 +10,7 @@ public class EnemyHitboxManager : MonoBehaviour
     private void Start()
     {
         //weird ass line lmao, but as long as it works
-        enemyController = this.transform.parent.gameObject.transform.parent.gameObject.GetComponent<EnemyController>();
+        enemyController = this.transform.parent.gameObject.GetComponent<EnemyController>();
     }
 
     // Update is called once per frame

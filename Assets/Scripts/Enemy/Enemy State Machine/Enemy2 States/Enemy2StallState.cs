@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy2StallState : EnemyBaseState
 {
@@ -11,17 +12,23 @@ public class Enemy2StallState : EnemyBaseState
         stateDuration = Random.Range(2f, 5f);
         randomNextAction = Random.Range(0, 2);
 
-        //move around
         enemyController.anim.SetTrigger("Stall");
-
-        Debug.Log("enemy backing away for " + stateDuration + " seconds");
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
 
+        if (enemyController.player == null)
+        {
+            enemyStateMachine.SetNextEnemyStateToMain();
+        }
+
         enemyController.LookAtPlayer();
+
+        //back away
+        enemyController.transform.position -= enemyController.transform.TransformDirection(Vector3.forward) * Time.deltaTime;
+        enemyController.navMeshAgent.Warp(enemyController.transform.position);
 
         //transition to next state, only based on condition
 
@@ -34,15 +41,14 @@ public class Enemy2StallState : EnemyBaseState
             //transition to next state, based on both stateDuration and condition
             if (enemyController.closeToPlayer)
             {
-
                 //choose a random attack
                 switch (randomNextAction)
                 {
                     case 0:
-                        enemyStateMachine.SetNextState(new Enemy2Attack1State());
+                        enemyStateMachine.SetNextState(new Enemy2Attack2State());
                         break;
                     case 1:
-                        enemyStateMachine.SetNextState(new Enemy2Attack2State());
+                        enemyStateMachine.SetNextState(new Enemy2StallState());
                         break;
                     default:
                         break;
@@ -51,7 +57,19 @@ public class Enemy2StallState : EnemyBaseState
             }
             else if (enemyController.farFromPlayer)
             {
-                enemyStateMachine.SetNextState(new Enemy2ApproachState());
+
+                switch (randomNextAction)
+                {
+                    case 0:
+                        enemyStateMachine.SetNextState(new Enemy2Attack1State());
+                        break;
+                    case 1:
+                        enemyStateMachine.SetNextState(new Enemy2ApproachState());
+                        break;
+                    default:
+                        break;
+                }
+
             }
 
             //if nothing happens, go back to idle

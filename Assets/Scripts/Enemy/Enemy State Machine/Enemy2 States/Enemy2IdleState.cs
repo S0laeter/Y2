@@ -8,20 +8,56 @@ public class Enemy2IdleState : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        //move around
-        enemyController.anim.SetTrigger("Idle");
+        randomNextAction = Random.Range(0, 2);
 
-        Debug.Log("enemy in idle");
+        enemyController.anim.SetTrigger("Idle");
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
 
+        if (enemyController.player == null)
+        {
+            return;
+        }
+
         enemyController.LookAtPlayer();
 
         //transition to next state, only based on condition
-        enemyStateMachine.SetNextState(new Enemy2StallState());
+        if (enemyController.closeToPlayer)
+        {
+
+            //choose a random attack, or just wait and do nothing lmao
+            switch (randomNextAction)
+            {
+                case 0:
+                    enemyStateMachine.SetNextState(new Enemy2Attack2State());
+                    break;
+                case 1:
+                    enemyStateMachine.SetNextState(new Enemy2StallState());
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        else if (enemyController.farFromPlayer)
+        {
+
+            switch (randomNextAction)
+            {
+                case 0:
+                    enemyStateMachine.SetNextState(new Enemy2Attack1State());
+                    break;
+                case 1:
+                    enemyStateMachine.SetNextState(new Enemy2ApproachState());
+                    break;
+                default:
+                    break;
+            }
+
+        }
 
         if (fixedTime >= stateDuration)
         {

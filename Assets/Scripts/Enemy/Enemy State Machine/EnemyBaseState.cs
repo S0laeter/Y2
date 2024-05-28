@@ -30,7 +30,7 @@ public class EnemyBaseState : EnemyState
         base.OnUpdate();
 
         //when not already dead, and gets hit
-        if (enemyStateMachine.currentState.GetType() != typeof(EnemyDeathState))
+        if (enemyStateMachine.currentState.GetType() != typeof(Enemy1DeathState))
         {
             //staggered upon being hit if armor is broken
             if (enemyController.shouldGetStaggered)
@@ -57,7 +57,7 @@ public class EnemyBaseState : EnemyState
 
     protected void Die(EnemyController enemyController)
     {
-        enemyStateMachine.SetNextState(new EnemyDeathState());
+        enemyStateMachine.SetNextState(new Enemy1DeathState());
     }
 
 

@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
         
         //check health
         //if 0 health left and is not already dead, go die
-        if (currentHealth <= 0f && enemyStateMachine.currentState.GetType() != typeof(EnemyDeathState))
+        if (currentHealth <= 0f && enemyStateMachine.currentState.GetType() != typeof(Enemy1DeathState))
         {
             StartCoroutine(Die());
         }
