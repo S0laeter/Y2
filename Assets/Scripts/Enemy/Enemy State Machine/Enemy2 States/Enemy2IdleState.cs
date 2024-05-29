@@ -28,7 +28,6 @@ public class Enemy2IdleState : EnemyBaseState
         if (enemyController.closeToPlayer)
         {
 
-            //choose a random attack, or just wait and do nothing lmao
             switch (randomNextAction)
             {
                 case 0:
@@ -48,7 +47,7 @@ public class Enemy2IdleState : EnemyBaseState
             switch (randomNextAction)
             {
                 case 0:
-                    enemyStateMachine.SetNextState(new Enemy2Attack1State());
+                    enemyStateMachine.SetNextState(new Enemy2StallState());
                     break;
                 case 1:
                     enemyStateMachine.SetNextState(new Enemy2ApproachState());

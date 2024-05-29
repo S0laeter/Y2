@@ -26,9 +26,12 @@ public class Enemy1StallState : EnemyBaseState
 
         enemyController.LookAtPlayer();
 
-        //back away
-        enemyController.transform.position -= enemyController.transform.TransformDirection(Vector3.forward) * Time.deltaTime;
-        enemyController.navMeshAgent.Warp(enemyController.transform.position);
+        //if navmesh is on, back away
+        if (enemyController.navMeshAgent.enabled == true)
+        {
+            enemyController.transform.position -= enemyController.transform.TransformDirection(Vector3.forward) * Time.deltaTime;
+            enemyController.navMeshAgent.Warp(enemyController.transform.position);
+        }
 
         //transition to next state, only based on condition
 
@@ -41,7 +44,7 @@ public class Enemy1StallState : EnemyBaseState
             //transition to next state, based on both stateDuration and condition
             if (enemyController.closeToPlayer)
             {
-                //choose a random attack
+
                 switch (randomNextAction)
                 {
                     case 0:

@@ -145,9 +145,6 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetTrigger("Death");
         Actions.OnPlayerKilled(this);
-
-        //destroy player, do this last
-        Destroy(this.gameObject);
     }
 
 

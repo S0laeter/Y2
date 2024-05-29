@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy1Attack3State : EnemyBaseState
 {
@@ -10,7 +11,9 @@ public class Enemy1Attack3State : EnemyBaseState
 
         stateDuration = 4.2f;
 
+        enemyController.navMeshAgent.Warp(enemyController.transform.position);
         enemyController.LookAtPlayer();
+
         enemyController.anim.SetTrigger("Attack3");
     }
 

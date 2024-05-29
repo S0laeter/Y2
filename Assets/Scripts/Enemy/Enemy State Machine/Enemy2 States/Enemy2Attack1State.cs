@@ -8,15 +8,18 @@ public class Enemy2Attack1State : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        stateDuration = 2.5f;
+        stateDuration = 2f;
 
-        enemyController.LookAtPlayer();
+        enemyController.navMeshAgent.Warp(enemyController.transform.position);
+
         enemyController.anim.SetTrigger("Attack1");
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
+        
+        enemyController.LookAtPlayer();
 
         //transition to next state, only based on condition
         

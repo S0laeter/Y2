@@ -9,7 +9,6 @@ public class EnemyHitboxManager : MonoBehaviour
 
     private void Start()
     {
-        //weird ass line lmao, but as long as it works
         enemyController = this.transform.parent.gameObject.GetComponent<EnemyController>();
     }
 
@@ -40,6 +39,7 @@ public class EnemyHitboxManager : MonoBehaviour
                     playerController.TakeHeavyHit();
                     break;
                 default:
+                    playerController.TakeDamage(hitboxDamage);
                     break;
             }
 

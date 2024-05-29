@@ -27,15 +27,11 @@ public class Enemy1ApproachState : EnemyBaseState
         {
             enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
         }
-        else
-        {
-            enemyStateMachine.SetNextState(new Enemy1ApproachState());
-        }
 
         //transition to next state, only based on condition
         if (enemyController.closeToPlayer)
         {
-            //choose a random attack, or just wait and do nothing lmao
+
             switch (randomNextAction) {
                 case 0:
                     enemyStateMachine.SetNextState(new Enemy1Attack1State());

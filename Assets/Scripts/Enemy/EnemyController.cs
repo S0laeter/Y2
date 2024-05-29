@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
 
     public GameObject player;
     private float distanceFromPlayer;
+    
+    public GameObject bulletPrefab;
+    public Transform instantiatePoint;
 
     public bool closeToPlayer;
     public bool farFromPlayer;
@@ -105,13 +108,13 @@ public class EnemyController : MonoBehaviour
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //choose actions based on distance
-        //dont just use the navmesh's stopping distance btw, its broken as fuck, add a bit of distance to it instead
-        if (distanceFromPlayer > (navMeshAgent.stoppingDistance + 0.5f))
+        //navmesh's stopping distance is buggy as fuck ngl..
+        if (distanceFromPlayer > navMeshAgent.stoppingDistance)
         {
             farFromPlayer = true;
             closeToPlayer = false;
         }
-        else if (distanceFromPlayer <= (navMeshAgent.stoppingDistance + 0.5f))
+        else if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
         {
             closeToPlayer = true;
             farFromPlayer = false;
@@ -229,13 +232,14 @@ public class EnemyController : MonoBehaviour
     }
 
 
-
-
-
-    //just in case we need to wait
-    private IEnumerator WaitForSec(float waitTime)
+    //instantiate bullet
+    public void InstantiateBullet()
     {
-        yield return new WaitForSeconds(waitTime);
+        //instantiate, remember to rotate the point during animation to tilt the swordwave
+        Instantiate(bulletPrefab, instantiatePoint.position, instantiatePoint.rotation, this.transform);
+
+        //pass the damage
+        attackDamage = attackPower * 10f;
     }
 
 

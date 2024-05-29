@@ -28,7 +28,6 @@ public class Enemy1IdleState : EnemyBaseState
         if (enemyController.closeToPlayer)
         {
 
-            //choose a random attack, or just wait and do nothing lmao
             switch (randomNextAction)
             {
                 case 0:

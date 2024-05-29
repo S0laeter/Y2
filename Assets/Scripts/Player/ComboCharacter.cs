@@ -72,7 +72,7 @@ public class ComboCharacter : MonoBehaviour
 
         //swordwave speed
         Rigidbody swordwaveRb = swordwave.GetComponent<Rigidbody>();
-        swordwaveRb.velocity = transform.TransformDirection(Vector3.forward * 20f);
+        swordwaveRb.velocity = swordwave.transform.TransformDirection(Vector3.forward * 20f);
 
         //pass the damage
         float damage = attackPower * 20f;

@@ -10,7 +10,9 @@ public class Enemy1Attack2State : EnemyBaseState
 
         stateDuration = 2.5f;
 
+        enemyController.navMeshAgent.Warp(enemyController.transform.position);
         enemyController.LookAtPlayer();
+
         enemyController.anim.SetTrigger("Attack2");
     }
 

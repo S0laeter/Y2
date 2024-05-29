@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileHitboxManager : MonoBehaviour
+public class ProjectileManager : MonoBehaviour
 {
     public float autoDestroyTime;
 

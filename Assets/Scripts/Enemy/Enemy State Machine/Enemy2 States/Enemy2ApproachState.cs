@@ -8,7 +8,8 @@ public class Enemy2ApproachState : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        randomNextAction = Random.Range(0, 4);
+        stateDuration = 3f;
+        randomNextAction = Random.Range(0, 3);
 
         enemyController.anim.SetTrigger("Approach");
     }
@@ -27,15 +28,11 @@ public class Enemy2ApproachState : EnemyBaseState
         {
             enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
         }
-        else
-        {
-            enemyStateMachine.SetNextState(new Enemy2ApproachState());
-        }
 
         //transition to next state, only based on condition
         if (enemyController.closeToPlayer)
         {
-            //choose a random attack, or just wait and do nothing lmao
+
             switch (randomNextAction) {
                 case 0:
                     enemyStateMachine.SetNextState(new Enemy2Attack1State());
@@ -45,9 +42,6 @@ public class Enemy2ApproachState : EnemyBaseState
                     break;
                 case 2:
                     enemyStateMachine.SetNextState(new Enemy2StallState());
-                    break;
-                case 3:
-                    enemyStateMachine.SetNextEnemyStateToMain();
                     break;
                 default:
                     break;
@@ -61,7 +55,10 @@ public class Enemy2ApproachState : EnemyBaseState
             
 
             //transition to next state, based on both stateDuration and condition
-
+            if (enemyController.farFromPlayer)
+            {
+                enemyStateMachine.SetNextState(new Enemy2Attack1State());
+            }
 
         }
     }

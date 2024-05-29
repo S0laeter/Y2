@@ -8,9 +8,11 @@ public class Enemy2Attack2State : EnemyBaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        stateDuration = 2.5f;
+        stateDuration = 2.2f;
 
+        enemyController.navMeshAgent.Warp(enemyController.transform.position);
         enemyController.LookAtPlayer();
+
         enemyController.anim.SetTrigger("Attack2");
     }
 
@@ -24,17 +26,11 @@ public class Enemy2Attack2State : EnemyBaseState
         if (fixedTime >= stateDuration)
         {
             //transition to next state, after stateDuration with no condition
+            enemyStateMachine.SetNextState(new Enemy2StallState());
 
 
             //transition to next state, based on both stateDuration and condition
-            if (enemyController.farFromPlayer)
-            {
-                enemyStateMachine.SetNextState(new Enemy2ApproachState());
-            }
-            else if (enemyController.closeToPlayer)
-            {
-                enemyStateMachine.SetNextState(new Enemy2StallState());
-            }
+
 
         }
     }
