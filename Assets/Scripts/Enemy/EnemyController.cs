@@ -5,6 +5,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.Processors;
 
 public class EnemyController : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class EnemyController : MonoBehaviour
     public bool shouldGetStaggered;
     public bool shouldGetLaunched;
 
+    public bool isDead;
+
     public float extraTimeOnDeath;
 
     // Start is called before the first frame update
@@ -58,7 +61,7 @@ public class EnemyController : MonoBehaviour
                 enemyStateMachine.SetNextState(new Enemy2IdleState());
                 break;
             case "Enemy3":
-                //enemyStateMachine.SetNextState(new Enemy3IdleState());
+                enemyStateMachine.SetNextState(new Enemy3IdleState());
                 break;
             default:
                 break;
@@ -75,16 +78,19 @@ public class EnemyController : MonoBehaviour
 
         shouldGetStaggered = false;
         shouldGetLaunched = false;
+
+        isDead = false;
     }
 
 
     void FixedUpdate()
     {
-        
+
         //check health
         //if 0 health left and is not already dead, go die
-        if (currentHealth <= 0f && enemyStateMachine.currentState.GetType() != typeof(Enemy1DeathState))
+        if (currentHealth <= 0f && isDead == false)
         {
+            isDead = true;
             StartCoroutine(Die());
         }
 
@@ -208,9 +214,7 @@ public class EnemyController : MonoBehaviour
     {
         Actions.OnEnemyKilled(this);
         
-        //death animation is already handled by the statemachine btw
-        
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         //destroy this enemy, do this last
         Destroy(this.gameObject);

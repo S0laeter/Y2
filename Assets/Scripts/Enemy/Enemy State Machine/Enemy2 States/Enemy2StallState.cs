@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy2StallState : EnemyBaseState
+public class Enemy2StallState : Enemy2BaseState
 {
     public override void OnEnter(EnemyStateMachine _enemyStateMachine)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Attack2State : EnemyBaseState
+public class Enemy1Attack2State : Enemy1BaseState
 {
     public override void OnEnter(EnemyStateMachine _enemyStateMachine)
     {

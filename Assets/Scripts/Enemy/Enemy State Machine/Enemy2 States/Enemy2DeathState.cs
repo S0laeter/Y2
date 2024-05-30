@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy2DeathState : EnemyBaseState
+public class Enemy2DeathState : Enemy2BaseState
 {
     public override void OnEnter(EnemyStateMachine _enemyStateMachine)
     {
         base.OnEnter(_enemyStateMachine);
 
-        enemyController.anim.SetTrigger("Death");
+        stateDuration = 1.5f;
 
-        Debug.Log("enemy died");
+        enemyController.anim.SetTrigger("Death");
     }
 
     public override void OnUpdate()

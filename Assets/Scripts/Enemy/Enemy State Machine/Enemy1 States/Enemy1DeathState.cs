@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy1DeathState : EnemyBaseState
+public class Enemy1DeathState : Enemy1BaseState
 {
     public override void OnEnter(EnemyStateMachine _enemyStateMachine)
     {
         base.OnEnter(_enemyStateMachine);
 
-        enemyController.anim.SetTrigger("Death");
+        stateDuration = 1.5f;
 
-        Debug.Log("enemy died");
+        enemyController.anim.SetTrigger("Death");
     }
 
     public override void OnUpdate()
@@ -24,7 +24,7 @@ public class Enemy1DeathState : EnemyBaseState
         if (fixedTime >= stateDuration)
         {
             //transition to next state, after stateDuration with no condition
-
+            
 
             //transition to next state, based on both stateDuration and condition
 
