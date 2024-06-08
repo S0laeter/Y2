@@ -10,14 +10,12 @@ public class Skill1State : MeleeBaseState
         base.OnEnter(_stateMachine);
 
         skillIndex = 1;
-        attackDuration = 0.5f;
+        attackDuration = 0.75f;
 
         //lock on, triggers animation, set isAttacking
         playerController.SimpleLockOn();
         playerController.anim.SetTrigger("Skill" + skillIndex);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
-
-        Debug.Log("skill " + skillIndex);
     }
 
     public override void OnUpdate()
@@ -33,17 +31,8 @@ public class Skill1State : MeleeBaseState
         //whether or not to continue combo
         if (fixedTime >= attackDuration)
         {
-
-            //atk button pressed
-            if (shouldCombo)
-            {
-                stateMachine.SetNextState(new Attack1State());
-            }
-            //nothing pressed
-            else
-            {
-                stateMachine.SetNextStateToMain();
-            }
+            
+            stateMachine.SetNextStateToMain();
 
         }
     }

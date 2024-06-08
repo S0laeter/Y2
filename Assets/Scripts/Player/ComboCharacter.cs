@@ -96,7 +96,7 @@ public class ComboCharacter : MonoBehaviour
     {
         if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
         {
-            meleeStateMachine.SetNextState(new Skill1State());
+            meleeStateMachine.SetNextState(new Skill00State());
         }
     }
     //linked to dash button action

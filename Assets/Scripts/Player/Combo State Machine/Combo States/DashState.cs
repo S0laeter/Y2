@@ -9,7 +9,7 @@ public class DashState : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
 
-        dashDuration = 0.25f;
+        dashDuration = 0.6f;
         dashCooldown = 0.5f;
 
         //just to make sure dash canceling doesn't break anything

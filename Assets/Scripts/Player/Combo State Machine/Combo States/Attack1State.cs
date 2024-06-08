@@ -10,14 +10,12 @@ public class Attack1State : MeleeBaseState
         base.OnEnter(_stateMachine);
 
         attackIndex = 1;
-        attackDuration = 1f;
+        attackDuration = 0.6f;
 
         //lock on, triggers animation, set isAttacking
         playerController.SimpleLockOn();
         playerController.anim.SetTrigger("Attack" + attackIndex);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
-
-        Debug.Log("attack " + attackIndex);
     }
 
     public override void OnUpdate()
