@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
 
     public Transform cam;
-    public FixedJoystick joystick;
 
+    public PlayerInput playerInput;
+    public FixedJoystick joystick;
     private Vector2 joystickDirection;
     
     private float moveSpeed;
+    float turnSmoothVelocity;
     public bool isRunning;
 
     public bool isAttacking;
@@ -27,7 +29,11 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
 
-    float turnSmoothVelocity;
+    public float maxEnergy = 100f;
+    public float currentEnergy;
+
+    private bool skillHolding;
+    private float skillHoldTime;
 
     private void OnEnable()
     {
@@ -36,6 +42,12 @@ public class PlayerController : MonoBehaviour
     private void DisEnable()
     {
         Actions.OnTimeOut -= Die;
+
+        //input events
+        playerInput.actions["Dash"].performed -= DashInputPerformed;
+        playerInput.actions["Attack"].performed -= AttackInputPerformed;
+        playerInput.actions["Skill"].started -= SkillInputStarted;
+        playerInput.actions["Skill"].canceled -= SkillInputCanceled;
     }
 
     // Start is called before the first frame update
@@ -43,18 +55,69 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        playerInput = GetComponent<PlayerInput>();
 
-        moveSpeed = 250f;
+        //input events
+        playerInput.actions["Dash"].performed += DashInputPerformed;
+        playerInput.actions["Attack"].performed += AttackInputPerformed;
+        playerInput.actions["Skill"].started += SkillInputStarted;
+        playerInput.actions["Skill"].canceled += SkillInputCanceled;
+
+        moveSpeed = 200f;
 
         currentHealth = maxHealth;
-
+        currentEnergy = 0f;
         Actions.UpdatePlayerHealthBar(this);
+        Actions.UpdatePlayerEnergyBar(this);
 
+        skillHoldTime = 0f;
+        skillHolding = false;
     }
+
+    //input stuffs
+    private void DashInputPerformed(InputAction.CallbackContext context)
+    {
+        Actions.OnDashInput();
+    }
+    private void AttackInputPerformed(InputAction.CallbackContext context)
+    {
+        Actions.OnAttackInput();
+    }
+    private void SkillInputStarted(InputAction.CallbackContext context)
+    {
+        skillHolding = true;
+    }
+    private void SkillInputCanceled(InputAction.CallbackContext context)
+    {
+        if (skillHoldTime < 1)
+        {
+            Actions.OnSkillInput();
+        }
+
+        skillHolding = false;
+    }
+    
 
     // Update is called once per frame
     void Update()
     {
+
+        //while holding skill
+        if (skillHolding)
+        {
+            skillHoldTime += Time.deltaTime;
+
+            if (skillHoldTime >= 1)
+            {
+                Actions.OnUltInput();
+                skillHolding = false;
+            }
+        }
+        else
+        {
+            skillHoldTime = 0f;
+        }
+
 
         if (currentHealth <= 0f)
         {
@@ -128,7 +191,6 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-
     //take damage, but invincible while dashing
     public void TakeDamage(float damage)
     {
@@ -138,6 +200,14 @@ public class PlayerController : MonoBehaviour
 
             Actions.UpdatePlayerHealthBar(this);
         }
+    }
+
+    //add energy
+    public void GainEnergy(float energyToAdd)
+    {
+        currentEnergy = Mathf.Clamp(currentEnergy + energyToAdd, 0f, maxEnergy);
+
+        Actions.UpdatePlayerEnergyBar(this);
     }
 
     //die

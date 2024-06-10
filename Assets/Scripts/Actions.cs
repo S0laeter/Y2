@@ -6,6 +6,7 @@ using System;
 public static class Actions
 {
     public static Action<PlayerController> UpdatePlayerHealthBar;
+    public static Action<PlayerController> UpdatePlayerEnergyBar;
     public static Action<EnemyController> UpdateEnemyHealthBar;
     public static Action<TimerManager> UpdateTimer;
     
@@ -13,9 +14,10 @@ public static class Actions
     public static Action<float> PassHitboxKnockback;
     public static Action<float> PassProjectileDamage;
 
-    public static Action OnAttackButtonPressed;
-    public static Action OnSkillButtonPressed;
-    public static Action OnDashButtonPressed;
+    public static Action OnAttackInput;
+    public static Action OnSkillInput;
+    public static Action OnDashInput;
+    public static Action OnUltInput;
 
     public static Action<GameObject> LevelSelectButtonPressed;
     

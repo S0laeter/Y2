@@ -9,27 +9,24 @@ public class ComboCharacter : MonoBehaviour
     private StateMachine meleeStateMachine;
     private PlayerController playerController;
 
-    public GameObject swordwavePrefab;
-    public Transform instantiatePoint;
-
     [SerializeField]
     private float attackPower;
 
     private void OnEnable()
     {
-        Actions.OnAttackButtonPressed += SetFirstAttackState;
-        Actions.OnSkillButtonPressed += SetFirstSkillState;
-        Actions.OnDashButtonPressed += SetDashState;
+        Actions.OnAttackInput += SetFirstAttackState;
+        Actions.OnSkillInput += SetFirstSkillState;
+        Actions.OnDashInput += SetDashState;
     }
     private void DisEnable()
     {
-        Actions.OnAttackButtonPressed -= SetFirstAttackState;
-        Actions.OnSkillButtonPressed -= SetFirstSkillState;
-        Actions.OnDashButtonPressed -= SetDashState;
+        Actions.OnAttackInput -= SetFirstAttackState;
+        Actions.OnSkillInput -= SetFirstSkillState;
+        Actions.OnDashInput -= SetDashState;
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         meleeStateMachine = GetComponent<StateMachine>();
         playerController = GetComponent<PlayerController>();
@@ -62,21 +59,6 @@ public class ComboCharacter : MonoBehaviour
     public void DisableIgnoreCollisionWithEnemy()
     {
         Physics.IgnoreLayerCollision(6, 10, false);
-    }
-
-    //instantiate swordwave
-    public void InstantiateSwordwave()
-    {
-        //instantiate, remember to rotate the point during animation to tilt the swordwave
-        GameObject swordwave = Instantiate(swordwavePrefab, instantiatePoint.position, instantiatePoint.rotation);
-
-        //swordwave speed
-        Rigidbody swordwaveRb = swordwave.GetComponent<Rigidbody>();
-        swordwaveRb.velocity = swordwave.transform.TransformDirection(Vector3.forward * 20f);
-
-        //pass the damage
-        float damage = attackPower * 20f;
-        Actions.PassProjectileDamage(damage);
     }
 
 

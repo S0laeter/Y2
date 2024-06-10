@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
 {
     public SceneTransition sceneTransition;
     public GameObject pauseMenu;
-    public GameObject settingsMenu;
 
     private string levelToOpen;
 
@@ -56,12 +55,6 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         sceneTransition.LoadScene("MainMenu");
-    }
-
-    //open settings menu
-    public void Settings()
-    {
-        //put smt here..
     }
     
     //quit

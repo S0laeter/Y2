@@ -15,6 +15,7 @@ public class Skill01State : MeleeBaseState
         //lock on, triggers animation, set isAttacking
         playerController.SimpleLockOn();
         playerController.anim.SetTrigger("Skill" + skillIndex + "-1");
+        playerController.GainEnergy(5);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
     }
 

@@ -30,9 +30,9 @@ public class MeleeBaseState : State
         playerController = GetComponent<PlayerController>();
 
         //subscribing to actions
-        Actions.OnAttackButtonPressed += OnAttackButtonPressed;
-        Actions.OnSkillButtonPressed += OnSkillButtonPressed;
-        Actions.OnDashButtonPressed += SetDashState;
+        Actions.OnAttackInput += OnAttackButtonPressed;
+        Actions.OnSkillInput += OnSkillButtonPressed;
+        Actions.OnDashInput += SetDashState;
     }
 
     public override void OnUpdate()
@@ -46,9 +46,9 @@ public class MeleeBaseState : State
         base.OnExit();
 
         //unsubscribing to actions
-        Actions.OnAttackButtonPressed -= OnAttackButtonPressed;
-        Actions.OnSkillButtonPressed -= OnSkillButtonPressed;
-        Actions.OnDashButtonPressed -= SetDashState;
+        Actions.OnAttackInput -= OnAttackButtonPressed;
+        Actions.OnSkillInput -= OnSkillButtonPressed;
+        Actions.OnDashInput -= SetDashState;
     }
 
     //linked to attack button action
