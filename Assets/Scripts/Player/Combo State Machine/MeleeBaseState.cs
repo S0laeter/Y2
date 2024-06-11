@@ -12,6 +12,7 @@ public class MeleeBaseState : State
     protected bool shouldSkill;
     protected int attackIndex;
     protected int skillIndex;
+    protected bool shouldUlt;
     protected float attackDuration;
 
     protected bool shouldDash;

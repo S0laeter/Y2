@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     public float currentEnergy;
 
     private bool skillHolding;
-    private float skillHoldTime;
+    private float skillHeldTime;
+    private float skillHoldTimeTarget = 0.4f;
 
     private void OnEnable()
     {
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
         Actions.UpdatePlayerHealthBar(this);
         Actions.UpdatePlayerEnergyBar(this);
 
-        skillHoldTime = 0f;
+        skillHeldTime = 0f;
         skillHolding = false;
     }
 
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SkillInputCanceled(InputAction.CallbackContext context)
     {
-        if (skillHoldTime < 1)
+        if (skillHeldTime < skillHoldTimeTarget)
         {
             Actions.OnSkillInput();
         }
@@ -105,9 +106,9 @@ public class PlayerController : MonoBehaviour
         //while holding skill
         if (skillHolding)
         {
-            skillHoldTime += Time.deltaTime;
+            skillHeldTime += Time.deltaTime;
 
-            if (skillHoldTime >= 1)
+            if (skillHeldTime >= skillHoldTimeTarget)
             {
                 Actions.OnUltInput();
                 skillHolding = false;
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            skillHoldTime = 0f;
+            skillHeldTime = 0f;
         }
 
 

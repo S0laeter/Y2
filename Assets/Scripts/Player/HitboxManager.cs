@@ -8,6 +8,8 @@ public class HitboxManager : MonoBehaviour
     private float damage;
     private float knockback;
 
+    public string hitboxType;
+
     private void OnEnable()
     {
         //subscribing to actions
@@ -40,7 +42,7 @@ public class HitboxManager : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             //damage and knockback
-            enemyController.TakeDamage(damage, this.name);
+            enemyController.TakeDamage(damage, hitboxType);
             enemyController.StartCoroutine(enemyController.TakeKnockback(knockback));
 
         }

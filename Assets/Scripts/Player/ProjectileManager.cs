@@ -9,6 +9,8 @@ public class ProjectileManager : MonoBehaviour
     private float damage;
     public float knockback;
 
+    public string hitboxType;
+
     private void OnEnable()
     {
         Destroy(this.gameObject, autoDestroyTime);
@@ -37,7 +39,7 @@ public class ProjectileManager : MonoBehaviour
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
             //damage and knockback
-            enemyController.TakeDamage(damage, this.name);
+            enemyController.TakeDamage(damage, hitboxType);
             enemyController.StartCoroutine(enemyController.TakeKnockback(knockback));
         }
     }

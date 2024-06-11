@@ -436,6 +436,7 @@
 "Assets/Scripts/Player/Combo State Machine/Combo States/Skill1State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Skill2State.cs"
 "Assets/Scripts/Player/Combo State Machine/Combo States/Skill3State.cs"
+"Assets/Scripts/Player/Combo State Machine/Combo States/UltState.cs"
 "Assets/Scripts/Player/Combo State Machine/IdleCombatState.cs"
 "Assets/Scripts/Player/Combo State Machine/MeleeBaseState.cs"
 "Assets/Scripts/Player/ComboCharacter.cs"

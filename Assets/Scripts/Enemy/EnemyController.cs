@@ -86,14 +86,6 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
 
-        //check health
-        //if 0 health left and is not already dead, go die
-        if (currentHealth <= 0f && isDead == false)
-        {
-            isDead = true;
-            StartCoroutine(Die());
-        }
-
         //check armor
         //if not broken armor, regen it
         if (!brokenArmor)
@@ -109,7 +101,7 @@ public class EnemyController : MonoBehaviour
 
 
         //enemy ai stuffs
-        if (player == null)
+        if (player == null || isDead)
             return;
         //calculate distance from player
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
@@ -159,6 +151,12 @@ public class EnemyController : MonoBehaviour
     {
         //deduct health
         currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
+        //if 0 health left and is not already dead, go die
+        if (currentHealth <= 0f && isDead == false)
+        {
+            Die();
+            return;
+        }
 
         //if armor not broken, reduce armor
         if (!brokenArmor)
@@ -171,10 +169,10 @@ public class EnemyController : MonoBehaviour
             //which kind of damage received, for the stagger states
             switch (playerHitboxType)
             {
-                case "Hitbox":
+                case "Light":
                     shouldGetStaggered = true;
                     break;
-                case "HitboxHeavy":
+                case "Heavy":
                     shouldGetLaunched = true;
                     break;
                 default:
@@ -198,10 +196,9 @@ public class EnemyController : MonoBehaviour
             Debug.Log(this.name + " has taken " + horizontalKnockback + " knockback");
 
             //wait while knockback
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForEndOfFrame();
 
             //enable navmesh agent
-            navMeshAgent.Warp(this.transform.position);
             navMeshAgent.enabled = true;
         }
     }
@@ -210,14 +207,15 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public IEnumerator Die()
+    public void Die()
     {
+        isDead = true;
+        navMeshAgent.enabled = false;
+
         Actions.OnEnemyKilled(this);
-        
-        yield return new WaitForSeconds(1.5f);
 
         //destroy this enemy, do this last
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 1.5f);
     }
 
 

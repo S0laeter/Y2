@@ -16,12 +16,14 @@ public class ComboCharacter : MonoBehaviour
     {
         Actions.OnAttackInput += SetFirstAttackState;
         Actions.OnSkillInput += SetFirstSkillState;
+        Actions.OnUltInput += SetFirstUltState;
         Actions.OnDashInput += SetDashState;
     }
     private void DisEnable()
     {
         Actions.OnAttackInput -= SetFirstAttackState;
         Actions.OnSkillInput -= SetFirstSkillState;
+        Actions.OnUltInput -= SetFirstUltState;
         Actions.OnDashInput -= SetDashState;
     }
 
@@ -64,24 +66,41 @@ public class ComboCharacter : MonoBehaviour
 
 
 
-    //button actions
-    //linked to attack button action
-    public void SetFirstAttackState()
+
+
+    //linked to attack input
+    private void SetFirstAttackState()
     {
         if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new Attack1State());
         }
     }
-    //linked to skill button action
-    public void SetFirstSkillState()
+    //linked to skill input
+    private void SetFirstSkillState()
     {
         if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new Skill00State());
         }
     }
-    //linked to dash button action
+    //linked to ult input
+    private void SetFirstUltState()
+    {
+        if (meleeStateMachine.currentState.GetType() == typeof(IdleCombatState))
+        {
+            //only activate ult when energy is atleast 100
+            if (playerController.currentEnergy >= 100f)
+            {
+                meleeStateMachine.SetNextState(new UltState());
+            }
+            else
+            {
+                meleeStateMachine.SetNextState(new Skill00State());
+            }
+        }
+    }
+    //linked to dash input
     public void SetDashState()
     {
         if (playerController.canDash)

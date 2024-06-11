@@ -11,6 +11,8 @@ public class Enemy2BaseState : EnemyState
 
     protected float stateDuration;
 
+    protected bool shouldDie;
+
     //reminder, random range for int is maxExclusive, so the maximum gotta be one int higher
     protected int randomNextAction;
 
@@ -20,17 +22,23 @@ public class Enemy2BaseState : EnemyState
 
         //getting stuffs
         enemyController = GetComponent<EnemyController>();
+
+        shouldDie = false;
+
+        Actions.OnEnemyKilled += Die;
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
 
-        if (enemyController.isDead)
+        if (shouldDie)
         {
             enemyStateMachine.SetNextState(new Enemy2DeathState());
+            return;
         }
-        else if (!enemyController.isDead)
+
+        if (!enemyController.isDead)
         {
             //staggered upon being hit if armor is broken
             if (enemyController.shouldGetStaggered)
@@ -51,6 +59,16 @@ public class Enemy2BaseState : EnemyState
     {
         base.OnExit();
 
+        Actions.OnEnemyKilled -= Die;
+    }
+
+    private void Die(EnemyController enemyControllerCalledFrom)
+    {
+        if (enemyControllerCalledFrom == enemyController)
+        {
+            shouldDie = true;
+        }
+        
     }
 
 
