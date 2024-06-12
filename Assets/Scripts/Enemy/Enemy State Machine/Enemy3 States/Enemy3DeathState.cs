@@ -11,7 +11,7 @@ public class Enemy3DeathState : Enemy3BaseState
 
         stateDuration = 1.5f;
 
-        enemyController.TakeDamage(enemyController.currentHealth, "Hitbox");
+        enemyController.Die();
 
         enemyController.anim.SetTrigger("Death");
     }

@@ -22,7 +22,7 @@ public static class Actions
     public static Action<GameObject> LevelSelectButtonPressed;
     
     public static Action<EnemyController> OnEnemyKilled;
-    public static Action<EnemyController> OnEnemyDamaged;
+    public static Action<float> OnEnemyDamaged;
     public static Action<PlayerController> OnPlayerKilled;
     public static Action OnTimeOut;
 }

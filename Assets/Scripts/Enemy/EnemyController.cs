@@ -147,10 +147,12 @@ public class EnemyController : MonoBehaviour
 
 
 
+
     public void TakeDamage(float playerDamage, string playerHitboxType)
     {
         //deduct health
         currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
+        Actions.OnEnemyDamaged(playerDamage);
         //if 0 health left and is not already dead, go die
         if (currentHealth <= 0f && isDead == false)
         {
@@ -192,8 +194,6 @@ public class EnemyController : MonoBehaviour
 
             //knockback
             rb.AddForce(transform.forward * -horizontalKnockback);
-
-            Debug.Log(this.name + " has taken " + horizontalKnockback + " knockback");
 
             //wait while knockback
             yield return new WaitForEndOfFrame();

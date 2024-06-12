@@ -12,8 +12,6 @@ public class Enemy1StaggeredState : Enemy1BaseState
         stateDuration = 0.75f;
 
         enemyController.anim.SetTrigger("Staggered");
-
-        Debug.Log("enemy staggered");
     }
 
     public override void OnUpdate()

@@ -52606,3 +52606,10 @@ AnimationClip:
     floatParameter: 16
     intParameter: 0
     messageOptions: 0
+  - time: 0.6
+    functionName: PassHitboxHorizontalKnockback
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 20000
+    intParameter: 0
+    messageOptions: 0

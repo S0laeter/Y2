@@ -39,10 +39,12 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnTimeOut += Die;
+        Actions.OnEnemyDamaged += LifeSteal;
     }
     private void DisEnable()
     {
         Actions.OnTimeOut -= Die;
+        Actions.OnEnemyDamaged -= LifeSteal;
 
         //input events
         playerInput.actions["Dash"].performed -= DashInputPerformed;
@@ -183,14 +185,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //get knocked back from heavy hit
-    public void TakeHeavyHit()
+    //life steal, btw dont make this too op lmao
+    public void LifeSteal(float healthToAdd)
     {
-        if (!isDashing)
-        {
-            //GOTTA ADD STAGGER ANIMATION LATER
-        }
-        
+        currentHealth = Mathf.Clamp(currentHealth + healthToAdd/2, 0f, maxHealth);
+
+        Actions.UpdatePlayerHealthBar(this);
     }
     //take damage, but invincible while dashing
     public void TakeDamage(float damage)
@@ -201,6 +201,15 @@ public class PlayerController : MonoBehaviour
 
             Actions.UpdatePlayerHealthBar(this);
         }
+    }
+    //get knocked back from heavy hit
+    public void TakeHeavyHit()
+    {
+        if (!isDashing)
+        {
+            //GOTTA ADD STAGGER ANIMATION LATER
+        }
+        
     }
 
     //add energy
@@ -269,7 +278,7 @@ public class PlayerController : MonoBehaviour
         //rotate to face it
         this.transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
 
-        Debug.Log("locked onto " + enemiesInRange[0]);
+        //Debug.Log("locked onto " + enemiesInRange[0]);
 
         //clear array for next lock on
         System.Array.Clear(enemiesInRange, 0, enemiesInRange.Length);
