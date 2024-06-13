@@ -10,9 +10,6 @@ public class UltState : MeleeBaseState
 
         attackDuration = 3f;
 
-        //lock on, triggers animation, set isAttacking
-        playerController.SimpleLockOn();
-
         playerController.anim.SetTrigger("Ult");
         playerController.GainEnergy(-100);
 

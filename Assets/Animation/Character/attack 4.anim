@@ -52599,14 +52599,21 @@ AnimationClip:
     floatParameter: 10000
     intParameter: 0
     messageOptions: 0
-  - time: 0.6
+  - time: 0.7
+    functionName: LookLockOn
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76666665
     functionName: PassHitboxDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 16
     intParameter: 0
     messageOptions: 0
-  - time: 0.6
+  - time: 0.76666665
     functionName: PassHitboxHorizontalKnockback
     data: 
     objectReferenceParameter: {fileID: 0}

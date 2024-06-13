@@ -9,7 +9,7 @@ public class Enemy2StaggeredState : Enemy2BaseState
     {
         base.OnEnter(_enemyStateMachine);
         
-        stateDuration = 1.1f;
+        stateDuration = 1f;
 
         enemyController.anim.SetTrigger("Staggered");
     }

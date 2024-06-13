@@ -13,8 +13,11 @@ public class Skill2State : MeleeBaseState
         attackDuration = 1.3f;
 
         //lock on, triggers animation, set isAttacking
-        playerController.SimpleLockOn();
+        playerController.ResetLockOn();
+        playerController.LookLockOn();
+
         playerController.anim.SetTrigger("Skill" + skillIndex);
+
         playerController.GainEnergy(15);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
     }

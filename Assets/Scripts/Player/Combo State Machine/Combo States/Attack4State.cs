@@ -13,8 +13,11 @@ public class Attack4State : MeleeBaseState
         attackDuration = 1.27f;
 
         //lock on, triggers animation, set isAttacking
-        playerController.SimpleLockOn();
+        playerController.ResetLockOn();
+        playerController.LookLockOn();
+
         playerController.anim.SetTrigger("Attack" + attackIndex);
+
         playerController.GainEnergy(10);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
     }

@@ -13,8 +13,11 @@ public class Attack3State : MeleeBaseState
         attackDuration = 1f;
 
         //lock on, triggers animation, set isAttacking
-        playerController.SimpleLockOn();
+        playerController.ResetLockOn();
+        playerController.LookLockOn();
+
         playerController.anim.SetTrigger("Attack" + attackIndex);
+
         playerController.GainEnergy(5);
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
     }

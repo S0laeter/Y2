@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -35,6 +36,9 @@ public class PlayerController : MonoBehaviour
     private bool skillHolding;
     private float skillHeldTime;
     private float skillHoldTimeTarget = 0.4f;
+
+    public GameObject coneLockOnBase;
+    private Collider lockedOnEnemy;
 
     private void OnEnable()
     {
@@ -257,40 +261,65 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
-    //simple lock on to nearest enemy when attacking, called from attack states
-    public void SimpleLockOn()
+    //if they actively want to target something, take enemy in that direction
+    //if they dont target anything, just take the closest enemy
+    public void ResetLockOn()
     {
-        //array of colliders in range, in layer Enemy
-        Collider[] enemiesInRange = new Collider[100];
-        enemiesInRange = Physics.OverlapSphere(transform.position, 10f, LayerMask.GetMask("Enemy"));
-        if (enemiesInRange.Length == 0)
+        
+        //array of colliders in a sphere, in layer Enemy
+        Collider[] enemiesInSphere = new Collider[100];
+        //get the enemies in sphere and sort by distance
+        enemiesInSphere = Physics.OverlapSphere(transform.position, 10f, LayerMask.GetMask("Enemy"));
+        //if nothing in range, nvm fuck it
+        if (enemiesInSphere.Length == 0)
             return;
+        enemiesInSphere = enemiesInSphere.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
 
-        //sort by distance using Linq
-        enemiesInRange = enemiesInRange.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
+        //array of colliders in a rectangle in front, in layer Enemy
+        Collider[] enemiesInBox = new Collider[100];
+        //if player is trying to change direction
+        joystickDirection = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
+        Vector3 direction = new Vector3(joystickDirection.x, 0f, joystickDirection.y).normalized;
+        if (direction.magnitude > 0)
+        {
+            //rotate base
+            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            coneLockOnBase.transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //get the enemies in box and sort by distance
+            enemiesInBox = Physics.OverlapBox(coneLockOnBase.transform.position, coneLockOnBase.transform.localScale / 2, coneLockOnBase.transform.rotation, LayerMask.GetMask("Enemy"));
+            enemiesInBox = enemiesInBox.OrderBy((enemy) => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
 
-        //get the direction of enemy
-        Vector3 relativePosition = enemiesInRange[0].transform.position - this.transform.position;
+            //assign lock on enemy
+            lockedOnEnemy = enemiesInBox[0];
+        }
+        else
+        {
+            //assign lock on enemy
+            lockedOnEnemy = enemiesInSphere[0];
+        }
+
+        //clear arrays for next lock on reset
+        System.Array.Clear(enemiesInSphere, 0, enemiesInSphere.Length);
+        System.Array.Clear(enemiesInBox, 0, enemiesInBox.Length);
+
+
+        Debug.Log("locked onto " + lockedOnEnemy);
+
+    }
+    //look at enemy when attacking
+    public void LookLockOn()
+    {
+        if (lockedOnEnemy == null)
+            return;
+        //get the position of enemy relative to player
+        Vector3 relativePosition = lockedOnEnemy.transform.position - this.transform.position;
         //this is so the character doesnt look up or down, only straight forward
         relativePosition.y = 0f;
         //rotate to face it
         this.transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
-
-        //Debug.Log("locked onto " + enemiesInRange[0]);
-
-        //clear array for next lock on
-        System.Array.Clear(enemiesInRange, 0, enemiesInRange.Length);
     }
 
 
 
-
-    //just in case we need to wait
-    private IEnumerator WaitForSec(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-    }
 
 }
