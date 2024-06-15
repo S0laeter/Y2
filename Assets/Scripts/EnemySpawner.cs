@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    //declare waves class
+    //declare wave class
     [System.Serializable]
     public class Wave
     {
         public GameObject[] enemiesToSpawn;
     }
+
+    public int spawnerID;
 
     public Wave[] waves;
 
@@ -23,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        SpawnWave();
+        
         Actions.OnEnemyKilled += onEnemyKilled;
     }
     private void DisEnable()
@@ -34,8 +38,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         currentWave = waves[0];
-
-        SpawnWave();
     }
 
     // Update is called once per frame
@@ -47,12 +49,16 @@ public class EnemySpawner : MonoBehaviour
             //reset kill count
             enemiesKilled = 0;
 
-            //increase wave count by one
+            //if there's no wave left, call an event announcing it and return
             currentWaveNumber++;
             if (currentWaveNumber >= waves.Length)
+            {
+                Actions.SpawnerIsEmpty(spawnerID);
                 return;
-            currentWave = waves[currentWaveNumber];
+            }
 
+            //if there are waves left, increase wave number by one
+            currentWave = waves[currentWaveNumber];
             //spawn enemies
             shouldSpawn = true;
             SpawnWave();

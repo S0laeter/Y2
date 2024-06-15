@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\Unity stuffs\\Y2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\player\\combo state machine\\combo states\\attack1state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\combo state machine\\combo states\\attack1state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|E:\\Unity stuffs\\Y2\\assets\\scripts\\player\\combocharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Attack1State.cs",
-              "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
-              "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\Combo State Machine\\Combo States\\Attack1State.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAmAAAA",
+              "DocumentIndex": 0,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
+              "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAA5wAcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:41:54.975Z",
+              "WhenOpened": "2024-06-15T06:43:32.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
@@ -60,8 +60,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\ComboCharacter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T05:32:05.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T05:32:05.276Z"
             }
           ]
         }

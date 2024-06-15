@@ -20,6 +20,8 @@ public static class Actions
     public static Action OnUltInput;
 
     public static Action<GameObject> LevelSelectButtonPressed;
+
+    public static Action<int> SpawnerIsEmpty;
     
     public static Action<EnemyController> OnEnemyKilled;
     public static Action<float> OnEnemyDamaged;
