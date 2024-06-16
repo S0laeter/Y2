@@ -27,17 +27,7 @@ public class Enemy2Attack1State : Enemy2BaseState
         if (fixedTime >= stateDuration)
         {
             //transition to next state, after stateDuration with no condition
-            
-
-            //transition to next state, based on both stateDuration and condition
-            if (enemyController.farFromPlayer)
-            {
-                enemyStateMachine.SetNextState(new Enemy2ApproachState());
-            }
-            else if (enemyController.closeToPlayer)
-            {
-                enemyStateMachine.SetNextState(new Enemy2StallState());
-            }
+            enemyStateMachine.SetNextState(new Enemy2StallState());
 
         }
     }

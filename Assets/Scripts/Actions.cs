@@ -25,6 +25,11 @@ public static class Actions
     
     public static Action<EnemyController> OnEnemyKilled;
     public static Action<float> OnEnemyDamaged;
+
     public static Action<PlayerController> OnPlayerKilled;
-    public static Action OnTimeOut;
+
+    //when cleared all waves and rooms
+    public static Action Win;
+    //when time out, or you die
+    public static Action Lose;
 }

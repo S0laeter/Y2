@@ -18,18 +18,6 @@ public class Enemy1DeathState : Enemy1BaseState
     {
         base.OnUpdate();
 
-        //transition to next state, only based on condition
-
-
-        if (fixedTime >= stateDuration)
-        {
-            //transition to next state, after stateDuration with no condition
-            
-
-            //transition to next state, based on both stateDuration and condition
-
-
-        }
     }
 
 }

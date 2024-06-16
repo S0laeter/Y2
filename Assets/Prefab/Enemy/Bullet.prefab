@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f1d961975fd5e434cb221fc0f3bc4e3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8015831940450030170}
   - component: {fileID: 2776262779481797851}
   - component: {fileID: 7367524182088231274}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf63f1bb80538a4aa5430dd4f23def9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoDestroyTime: 2
+  autoDestroyTime: 1
   projectileHitboxType: Hitbox
   projectileSpeed: 20
 --- !u!135 &7367524182088231274

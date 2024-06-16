@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Attack2State.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Skill1State.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy2 States\Enemy2Attack1State.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1Attack3State.cs" />
@@ -129,7 +130,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy2 States\Enemy2StaggeredState.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Skill00State.cs" />
-    <Compile Include="Assets\Scripts\Player\ProjectileManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -149,11 +149,11 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1Attack1State.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy3 States\Enemy3BaseState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1StaggeredState.cs" />
+    <Compile Include="Assets\Scripts\Map2Manager.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Skill01State.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1BaseState.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Fix_elevator_fall.cs" />
     <Compile Include="Assets\Scripts\Player\Combo State Machine\Combo States\Attack3State.cs" />
-    <Compile Include="Assets\Scripts\ObjectPooling.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonSelect.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy State Machine\Enemy1 States\Enemy1DeathState.cs" />

@@ -107,12 +107,12 @@ public class EnemyController : MonoBehaviour
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         //choose actions based on distance
         //navmesh's stopping distance is buggy as fuck ngl..
-        if (distanceFromPlayer > navMeshAgent.stoppingDistance)
+        if (distanceFromPlayer > navMeshAgent.stoppingDistance + 0.1f)
         {
             farFromPlayer = true;
             closeToPlayer = false;
         }
-        else if (distanceFromPlayer <= navMeshAgent.stoppingDistance)
+        else if (distanceFromPlayer <= navMeshAgent.stoppingDistance + 0.1f)
         {
             closeToPlayer = true;
             farFromPlayer = false;

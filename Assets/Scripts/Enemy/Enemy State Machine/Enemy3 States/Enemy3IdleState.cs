@@ -24,15 +24,6 @@ public class Enemy3IdleState : Enemy3BaseState
         //transition to next state, only based on condition
         enemyStateMachine.SetNextState(new Enemy3ApproachState());
 
-        if (fixedTime >= stateDuration)
-        {
-            //transition to next state, after stateDuration with no condition
-
-
-            //transition to next state, based on both stateDuration and condition
-            
-
-        }
     }
 
 }

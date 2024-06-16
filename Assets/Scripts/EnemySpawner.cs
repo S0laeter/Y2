@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        currentWave = waves[0];
         SpawnWave();
         
         Actions.OnEnemyKilled += onEnemyKilled;
@@ -37,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWave = waves[0];
+        
     }
 
     // Update is called once per frame

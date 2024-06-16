@@ -32,15 +32,6 @@ public class Enemy3ApproachState : Enemy3BaseState
             enemyStateMachine.SetNextState(new Enemy3Attack1State());
         }
 
-        if (fixedTime >= stateDuration)
-        {
-            //transition to next state, after stateDuration with no condition
-            
-
-            //transition to next state, based on both stateDuration and condition
-
-
-        }
     }
 
 }

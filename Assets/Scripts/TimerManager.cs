@@ -55,7 +55,7 @@ public class TimerManager : MonoBehaviour
 
     private void TimeOut()
     {
-        Actions.OnTimeOut();
+        Actions.Lose();
     }
 
 }

@@ -42,12 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        Actions.OnTimeOut += Die;
+        Actions.Lose += Die;
         Actions.OnEnemyDamaged += LifeSteal;
     }
     private void DisEnable()
     {
-        Actions.OnTimeOut -= Die;
+        Actions.Lose -= Die;
         Actions.OnEnemyDamaged -= LifeSteal;
 
         //input events
@@ -228,7 +228,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Death");
-        Actions.OnPlayerKilled(this);
+
+        Actions.Lose();
     }
 
 

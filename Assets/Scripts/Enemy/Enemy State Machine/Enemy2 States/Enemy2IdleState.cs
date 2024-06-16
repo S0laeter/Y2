@@ -58,15 +58,6 @@ public class Enemy2IdleState : Enemy2BaseState
 
         }
 
-        if (fixedTime >= stateDuration)
-        {
-            //transition to next state, after stateDuration with no condition
-
-
-            //transition to next state, based on both stateDuration and condition
-            
-
-        }
     }
 
 }

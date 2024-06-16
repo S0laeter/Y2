@@ -28,10 +28,6 @@ public class Enemy2Attack2State : Enemy2BaseState
             //transition to next state, after stateDuration with no condition
             enemyStateMachine.SetNextState(new Enemy2StallState());
 
-
-            //transition to next state, based on both stateDuration and condition
-
-
         }
     }
 

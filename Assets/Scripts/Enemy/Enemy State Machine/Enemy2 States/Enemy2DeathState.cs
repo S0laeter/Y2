@@ -21,15 +21,6 @@ public class Enemy2DeathState : Enemy2BaseState
         //transition to next state, only based on condition
 
 
-        if (fixedTime >= stateDuration)
-        {
-            //transition to next state, after stateDuration with no condition
-
-
-            //transition to next state, based on both stateDuration and condition
-
-
-        }
     }
 
 }
