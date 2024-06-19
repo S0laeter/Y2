@@ -24,13 +24,13 @@ public class Enemy2ApproachState : Enemy2BaseState
         }
 
         //if navmesh is on, chase player
-        if (enemyController.navMeshAgent.enabled == true)
+        if (enemyController.farFromPlayer)
         {
+            if (enemyController.navMeshAgent.enabled == false)
+                return;
             enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
         }
-
-        //transition to next state, only based on condition
-        if (enemyController.closeToPlayer)
+        else
         {
 
             switch (randomNextAction) {

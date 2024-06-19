@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy1ApproachState : Enemy1BaseState
 {
@@ -8,7 +9,7 @@ public class Enemy1ApproachState : Enemy1BaseState
     {
         base.OnEnter(_enemyStateMachine);
 
-        randomNextAction = Random.Range(0, 5);
+        randomNextAction = Random.Range(0, 4);
 
         enemyController.anim.SetTrigger("Approach");
     }
@@ -23,13 +24,13 @@ public class Enemy1ApproachState : Enemy1BaseState
         }
 
         //if navmesh is on, chase player
-        if (enemyController.navMeshAgent.enabled == true)
+        if (enemyController.farFromPlayer)
         {
+            if (enemyController.navMeshAgent.enabled == false)
+                return;
             enemyController.navMeshAgent.SetDestination(enemyController.player.transform.position);
         }
-
-        //transition to next state, only based on condition
-        if (enemyController.closeToPlayer)
+        else
         {
 
             switch (randomNextAction) {
@@ -44,9 +45,6 @@ public class Enemy1ApproachState : Enemy1BaseState
                     break;
                 case 3:
                     enemyStateMachine.SetNextState(new Enemy1StallState());
-                    break;
-                case 4:
-                    enemyStateMachine.SetNextEnemyStateToMain();
                     break;
                 default:
                     break;

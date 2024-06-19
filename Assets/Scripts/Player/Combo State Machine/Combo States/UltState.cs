@@ -8,15 +8,13 @@ public class UltState : MeleeBaseState
     {
         base.OnEnter(_stateMachine);
 
-        attackDuration = 3f;
+        attackDuration = 2.5f;
 
         playerController.anim.SetTrigger("Ult");
         playerController.GainEnergy(-100);
 
         playerController.StartCoroutine(playerController.AttackTiming(attackDuration));
         playerController.StartCoroutine(playerController.DashTiming(attackDuration));
-
-        Debug.Log("NEJNENDBWASIDCSHDIFHEUDOWDJAWODCASNDSANDKJWD");
     }
 
     public override void OnUpdate()

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\Unity stuffs\\Y2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|e:\\unity stuffs\\y2\\assets\\scripts\\map2manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\map2manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|E:\\Unity stuffs\\Y2\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A19F2E0D-379C-F715-FED0-6E90A9D5DA74}|Assembly-CSharp.csproj|E:\\Unity stuffs\\Y2\\assets\\scripts\\player\\combocharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Map2Manager.cs",
-              "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Map2Manager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Map2Manager.cs",
-              "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Map2Manager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Map2Manager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAhAAAA",
+              "Title": "EnemyController.cs",
+              "DocumentMoniker": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ToolTip": "E:\\Unity stuffs\\Y2\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAYwHIAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T15:40:26.024Z",
+              "WhenOpened": "2024-06-18T02:21:03.392Z",
               "EditorCaption": ""
             },
             {
@@ -47,8 +47,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T16:02:49.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-16T16:02:49.943Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\ComboCharacter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T05:32:05.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T05:32:05.276Z"
             }
           ]
         }
