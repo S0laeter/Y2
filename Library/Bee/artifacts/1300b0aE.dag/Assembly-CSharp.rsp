@@ -445,6 +445,7 @@
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/State.cs"
 "Assets/Scripts/Player/StateMachine.cs"
+"Assets/Scripts/SoundManager.cs"
 "Assets/Scripts/TimerManager.cs"
 "Assets/Scripts/UI/ButtonSelect.cs"
 "Assets/Scripts/UI/HUDManager.cs"

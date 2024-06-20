@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public Animator anim;
     public Rigidbody rb;
 
+    public AudioClip[] hitSounds;
+
     public GameObject player;
     private float distanceFromPlayer;
     
@@ -153,6 +155,8 @@ public class EnemyController : MonoBehaviour
         //deduct health
         currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
         Actions.OnEnemyDamaged(playerDamage);
+        //play hit sound
+        SoundManager.instance.PlaySoundClip(hitSounds, this.transform, 1f);
         //if 0 health left and is not already dead, go die
         if (currentHealth <= 0f && isDead == false)
         {
