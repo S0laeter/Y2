@@ -152,16 +152,23 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float playerDamage, string playerHitboxType)
     {
-        //deduct health
-        currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
-        Actions.OnEnemyDamaged(playerDamage);
-        //play hit sound
-        SoundManager.instance.PlaySoundClip(hitSounds, this.transform, 1f);
-        //if 0 health left and is not already dead, go die
-        if (currentHealth <= 0f && isDead == false)
+        //if still alive
+        if (!isDead)
         {
-            Die();
-            return;
+            Actions.OnEnemyDamaged(playerDamage);
+            
+            //deduct health
+            currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
+
+            //play hit sound
+            SoundManager.instance.PlayRandomSoundClip(hitSounds, this.transform, 0.3f);
+
+            //if 0 health left, go die
+            if (currentHealth <= 0f)
+            {
+                Die();
+                return;
+            }
         }
 
         //if armor not broken, reduce armor

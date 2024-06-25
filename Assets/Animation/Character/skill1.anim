@@ -31438,6 +31438,13 @@ AnimationClip:
     floatParameter: 20000
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: c52d582016f6def43bc16511367416a8, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.06666667
     functionName: EnableIgnoreCollisionWithEnemy
     data: 
@@ -31445,10 +31452,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46666667
-    functionName: LookLockOn
+  - time: 0.26666668
+    functionName: PlaySound
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 8300000, guid: 16625828df4230045b92676eba74dbd6, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

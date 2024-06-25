@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public GameObject audioSourceObject;
+    public AudioSource audioSourceObject;
 
     public static SoundManager instance;
 
@@ -14,18 +14,35 @@ public class SoundManager : MonoBehaviour
             instance = this;
     }
 
-    public void PlaySoundClip(AudioClip[] soundClip, Transform soundLocation, float volume)
+    public void PlaySoundClip(AudioClip audioClip, Transform audioLocation, float volume)
     {
-        //take a random sound from the array
-        int rand = Random.Range(0, soundClip.Length);
-
-        audioSourceObject.transform.position = soundLocation.position;
+        //spawn the audio source
+        AudioSource audioSource = Instantiate(audioSourceObject, audioLocation.position, Quaternion.identity);
 
         //assign the sound clip and play
-        AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
-        audioSource.clip = soundClip[rand];
+        audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();
+
+        //destroy it after done playing
+        Destroy(audioSource.gameObject, audioSource.clip.length);
+    }
+
+    public void PlayRandomSoundClip(AudioClip[] audioClip, Transform audioLocation, float volume)
+    {
+        //take a random sound from the array
+        int rand = Random.Range(0, audioClip.Length);
+
+        //spawn the audio source
+        AudioSource audioSource = Instantiate(audioSourceObject, audioLocation.position, Quaternion.identity);
+
+        //assign the sound clip and play
+        audioSource.clip = audioClip[rand];
+        audioSource.volume = volume;
+        audioSource.Play();
+
+        //destroy it after done playing
+        Destroy(audioSource.gameObject, audioSource.clip.length);
     }
 
 }

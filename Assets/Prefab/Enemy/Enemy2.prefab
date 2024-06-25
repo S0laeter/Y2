@@ -1739,6 +1739,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   anim: {fileID: 0}
   rb: {fileID: 0}
+  hitSounds:
+  - {fileID: 8300000, guid: 11d5d55485792814b9db0772414e42c0, type: 3}
   player: {fileID: 0}
   bulletPrefab: {fileID: 8284706331828366807, guid: f5a689f1e5005cb47b49a1f9a6ee1029, type: 3}
   instantiatePoint: {fileID: 744219693851312579}

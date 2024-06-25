@@ -41,7 +41,7 @@ public class ComboCharacter : MonoBehaviour
 
 
 
-    //animation events on the hitbox
+    //animation events
     //pass damage and knockback at the very start of the animation
     public void PassHitboxDamage(float setMultiplier)
     {
@@ -61,6 +61,12 @@ public class ComboCharacter : MonoBehaviour
     public void DisableIgnoreCollisionWithEnemy()
     {
         Physics.IgnoreLayerCollision(6, 10, false);
+    }
+
+    //use this to play sound
+    public void PlaySound(AudioClip soundClip)
+    {
+        SoundManager.instance.PlaySoundClip(soundClip, this.transform, 1f);
     }
 
 

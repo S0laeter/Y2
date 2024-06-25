@@ -43264,6 +43264,13 @@ AnimationClip:
     floatParameter: 5000
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: dce2e6a10a6874d4690ffee54c863c05, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.1
     functionName: EnableIgnoreCollisionWithEnemy
     data: 

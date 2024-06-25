@@ -29001,6 +29001,13 @@ AnimationClip:
     floatParameter: 10000
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: c52d582016f6def43bc16511367416a8, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: PassHitboxDamage
     data: 
@@ -29013,5 +29020,12 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 20000
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.43333334
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 78538520bf8afd54bb711aa12ec331db, type: 3}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
