@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public SceneTransition sceneTransition;
+
+    public GameObject howToPlayMenu;
     public GameObject pauseMenu;
 
     private string levelToOpen;
@@ -36,6 +38,16 @@ public class UIManager : MonoBehaviour
     public void LevelSelect()
     {
         sceneTransition.LoadScene("LevelSelect");
+    }
+
+    //how to play menu
+    public void HowToPlayOpen()
+    {
+        howToPlayMenu.SetActive(true);
+    }
+    public void HowToPlayClose()
+    {
+        howToPlayMenu.SetActive(false);
     }
 
     //pause and resume game
