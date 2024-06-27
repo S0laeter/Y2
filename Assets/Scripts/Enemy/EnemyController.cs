@@ -6,6 +6,7 @@ using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.Processors;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
@@ -160,7 +161,8 @@ public class EnemyController : MonoBehaviour
             //deduct health
             currentHealth = Mathf.Clamp(currentHealth - playerDamage, 0f, maxHealth);
 
-            //play hit sound
+            //blood splash and hit sound
+            StartCoroutine(BloodEffect());
             SoundManager.instance.PlayRandomSoundClip(hitSounds, this.transform, 0.3f);
 
             //if 0 health left, go die
@@ -247,14 +249,16 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    //instantiate bullet
-    public void InstantiateBullet()
+    //blood effects
+    private IEnumerator BloodEffect()
     {
-        //instantiate, remember to rotate the point during animation to tilt the swordwave
-        Instantiate(bulletPrefab, instantiatePoint.position, instantiatePoint.rotation, this.transform);
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
 
-        //pass the damage
-        attackDamage = attackPower * 10f;
+        //spawn blood in a random direction
+        GameObject bloodObj = ObjectPool.instance.SpawnObject("bloodEffect", spawnPosition, Random.rotation);
+        yield return new WaitForSeconds(0.5f);
+        //remember to turn the blood off lmao
+        bloodObj.SetActive(false);
     }
 
 
