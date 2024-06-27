@@ -15,7 +15,7 @@ E:/Unity stuffs/Y2
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57934
+61372
 Successfully changed project path to: E:/Unity stuffs/Y2
 E:/Unity stuffs/Y2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ E:/Unity stuffs/Y2
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [2288] Host "[IP] 192.168.1.18 [Port] 0 [Flags] 2 [Guid] 1475238936 [EditorId] 1475238936 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-TMLLBJ0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [23824] Host "[IP] 192.168.1.18 [Port] 0 [Flags] 2 [Guid] 480113144 [EditorId] 480113144 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-TMLLBJ0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [2288] Host "[IP] 192.168.1.18 [Port] 0 [Flags] 2 [Guid] 1475238936 [EditorId] 1475238936 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-TMLLBJ0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [23824] Host "[IP] 192.168.1.18 [Port] 0 [Flags] 2 [Guid] 480113144 [EditorId] 480113144 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-TMLLBJ0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 10.54 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 18.52 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -72,53 +72,53 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56160
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56344
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.020344 seconds.
-- Loaded All Assemblies, in  0.563 seconds
+Registered in 0.027508 seconds.
+- Loaded All Assemblies, in  0.834 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 410 ms
+Android Extension - Scanning For ADB Devices 556 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.890 seconds
-Domain Reload Profiling: 1450ms
-	BeginReloadAssembly (194ms)
+- Finished resetting the current domain, in  1.190 seconds
+Domain Reload Profiling: 2021ms
+	BeginReloadAssembly (234ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (46ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (90ms)
-	LoadAllAssembliesAndSetupDomain (215ms)
-		LoadAssemblies (194ms)
+	RebuildCommonClasses (72ms)
+	RebuildNativeTypeToScriptingClass (29ms)
+	initialDomainReloadingComplete (128ms)
+	LoadAllAssembliesAndSetupDomain (366ms)
+		LoadAssemblies (232ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (209ms)
-			TypeCache.Refresh (207ms)
-				TypeCache.ScanAssembly (186ms)
+		AnalyzeDomain (360ms)
+			TypeCache.Refresh (356ms)
+				TypeCache.ScanAssembly (322ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (890ms)
+	FinalizeReload (1191ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (807ms)
+		SetupLoadedEditorAssemblies (1059ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (580ms)
+			InitializePlatformSupportModulesInManaged (791ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (155ms)
-			ProcessInitializeOnLoadMethodAttributes (62ms)
+			ProcessInitializeOnLoadAttributes (174ms)
+			ProcessInitializeOnLoadMethodAttributes (85ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -126,8 +126,8 @@ Domain Reload Profiling: 1450ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.363 seconds
-Refreshing native plugins compatible for Editor in 12.14 ms, found 4 plugins.
+- Loaded All Assemblies, in  1.595 seconds
+Refreshing native plugins compatible for Editor in 5.03 ms, found 4 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
@@ -140,121 +140,79 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.127 seconds
-Domain Reload Profiling: 2484ms
-	BeginReloadAssembly (249ms)
+- Finished resetting the current domain, in  1.664 seconds
+Domain Reload Profiling: 3254ms
+	BeginReloadAssembly (285ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (38ms)
-	RebuildCommonClasses (56ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (85ms)
-	LoadAllAssembliesAndSetupDomain (951ms)
-		LoadAssemblies (634ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (68ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (75ms)
+	LoadAllAssembliesAndSetupDomain (1142ms)
+		LoadAssemblies (722ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (467ms)
-			TypeCache.Refresh (393ms)
-				TypeCache.ScanAssembly (360ms)
-			ScanForSourceGeneratedMonoScriptInfo (45ms)
-			ResolveRequiredComponents (26ms)
-	FinalizeReload (1128ms)
+		AnalyzeDomain (596ms)
+			TypeCache.Refresh (498ms)
+				TypeCache.ScanAssembly (452ms)
+			ScanForSourceGeneratedMonoScriptInfo (64ms)
+			ResolveRequiredComponents (32ms)
+	FinalizeReload (1665ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (815ms)
+		SetupLoadedEditorAssemblies (1308ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (42ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (67ms)
+			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (105ms)
-			ProcessInitializeOnLoadAttributes (567ms)
-			ProcessInitializeOnLoadMethodAttributes (83ms)
-			AfterProcessingInitializeOnLoad (10ms)
+			BeforeProcessingInitializeOnLoad (177ms)
+			ProcessInitializeOnLoadAttributes (896ms)
+			ProcessInitializeOnLoadMethodAttributes (135ms)
+			AfterProcessingInitializeOnLoad (22ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 4.86 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 6.59 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6711 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 109 unused Assets / (2.3 MB). Loaded Objects now: 7169.
-Memory consumption went from 334.9 MB to 332.6 MB.
-Total: 8.261300 ms (FindLiveObjects: 0.805300 ms CreateObjectMapping: 1.049200 ms MarkObjects: 5.534500 ms  DeleteObjects: 0.870700 ms)
+Memory consumption went from 334.8 MB to 332.5 MB.
+Total: 7.387100 ms (FindLiveObjects: 0.694200 ms CreateObjectMapping: 0.826400 ms MarkObjects: 4.616200 ms  DeleteObjects: 1.248800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: d54d2f2da18e7612c182cf67624b6b12 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 182484.772797 seconds.
+  path: Assets/Prefab/Player/Player.prefab
+  artifactKey: Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/Player.prefab using Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '420fd0778f84f10ce04bfd8ab426d3a4') in 2.248785 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1646
+========================================================================
 Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.692 seconds
-Refreshing native plugins compatible for Editor in 4.46 ms, found 4 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for iOS target not found
-Native extension for Android target not found
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-[MODES] Loading mode Default (0) for mode-current-id-My project
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.141 seconds
-Domain Reload Profiling: 2830ms
-	BeginReloadAssembly (210ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (57ms)
-	RebuildCommonClasses (43ms)
-	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (382ms)
-		LoadAssemblies (443ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (48ms)
-			TypeCache.Refresh (17ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (29ms)
-	FinalizeReload (2142ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1100ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (69ms)
-			SetLoadedEditorAssemblies (9ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (164ms)
-			ProcessInitializeOnLoadAttributes (774ms)
-			ProcessInitializeOnLoadMethodAttributes (76ms)
-			AfterProcessingInitializeOnLoad (8ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
-Refreshing native plugins compatible for Editor in 6.80 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 7.10 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6549 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 63 unused Assets / (2.3 MB). Loaded Objects now: 7185.
-Memory consumption went from 295.6 MB to 293.3 MB.
-Total: 11.388900 ms (FindLiveObjects: 1.068800 ms CreateObjectMapping: 1.655200 ms MarkObjects: 7.674200 ms  DeleteObjects: 0.989000 ms)
+Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (2.3 MB). Loaded Objects now: 7178.
+Memory consumption went from 196.2 MB to 193.9 MB.
+Total: 13.649700 ms (FindLiveObjects: 0.921100 ms CreateObjectMapping: 1.046400 ms MarkObjects: 10.254800 ms  DeleteObjects: 1.424900 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -272,90 +230,257 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 178234.635420 seconds.
-  path: Assets/Prefab/Enemy/BloodVFX.prefab
-  artifactKey: Guid(60ef8640b4fe3d24690e65fee85b0052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Enemy/BloodVFX.prefab using Guid(60ef8640b4fe3d24690e65fee85b0052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e8ad90165f8394a99c264dfc3cbb37') in 0.126382 seconds
+  Time since last request: 17.336112 seconds.
+  path: Assets/Prefab/Player/Player.prefab
+  artifactKey: Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/Player.prefab using Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f7f9c6a99f5fda1cbdbfc6922a7ca45') in 1.402825 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
+Number of asset objects unloaded after import = 1646
 ========================================================================
 Received Import Request.
-  Time since last request: 16.987268 seconds.
-  path: Assets/Prefab/Enemy/BloodVFX.prefab
-  artifactKey: Guid(60ef8640b4fe3d24690e65fee85b0052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Enemy/BloodVFX.prefab using Guid(60ef8640b4fe3d24690e65fee85b0052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3764c5f60f31e0328b8cddc6fab789b9') in 0.019408 seconds
+  Time since last request: 4.020695 seconds.
+  path: Assets/Prefab/Player/Player.prefab
+  artifactKey: Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/Player.prefab using Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd669b1ee29cbb12f7a6986037d0df2b0') in 1.143475 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
+Number of asset objects unloaded after import = 1646
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.611 seconds
-Refreshing native plugins compatible for Editor in 3.36 ms, found 4 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for iOS target not found
-Native extension for Android target not found
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-[MODES] Loading mode Default (0) for mode-current-id-My project
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.172 seconds
-Domain Reload Profiling: 2780ms
-	BeginReloadAssembly (183ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (52ms)
-	RebuildCommonClasses (46ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (33ms)
-	LoadAllAssembliesAndSetupDomain (334ms)
-		LoadAssemblies (384ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (43ms)
-			TypeCache.Refresh (14ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (27ms)
-	FinalizeReload (2173ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1087ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (61ms)
-			SetLoadedEditorAssemblies (10ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (142ms)
-			ProcessInitializeOnLoadAttributes (753ms)
-			ProcessInitializeOnLoadMethodAttributes (107ms)
-			AfterProcessingInitializeOnLoad (12ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (12ms)
-Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
-Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
-Refreshing native plugins compatible for Editor in 7.09 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6549 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 63 unused Assets / (2.3 MB). Loaded Objects now: 7209.
-Memory consumption went from 295.8 MB to 293.5 MB.
-Total: 10.689200 ms (FindLiveObjects: 1.012800 ms CreateObjectMapping: 1.171400 ms MarkObjects: 6.651700 ms  DeleteObjects: 1.851500 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: d54d2f2da18e7612c182cf67624b6b12 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+Received Import Request.
+  Time since last request: 1.445655 seconds.
+  path: Assets/Models/sword/swordMaterials/гарда.mat
+  artifactKey: Guid(f8dbd6d457b7cbb4d871f443f00a7528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordMaterials/гарда.mat using Guid(f8dbd6d457b7cbb4d871f443f00a7528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6502b8d5938be51e7e7e12f57bf47b8') in 0.318289 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Models/sword/swordMaterials/ручка.mat
+  artifactKey: Guid(d8b40cff2fa5b244bbd5902fcefd00c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordMaterials/ручка.mat using Guid(d8b40cff2fa5b244bbd5902fcefd00c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e344ce33eea092206f41cea0021a594') in 0.239529 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 9.737839 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_лезвие_Normal.png
+  artifactKey: Guid(b06c4dab435e21c4b84bee1a599f5449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_лезвие_Normal.png using Guid(b06c4dab435e21c4b84bee1a599f5449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '277d936f44ee57fe735157d65f34d2be') in 0.201861 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_ручка_Normal.png
+  artifactKey: Guid(c7db8cf20402dad4d9dc0af678b0102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_ручка_Normal.png using Guid(c7db8cf20402dad4d9dc0af678b0102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db9f7a64aec179885e34cbda6b306fc') in 0.185623 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_ручка_BaseColor.png
+  artifactKey: Guid(7041580d1a6216249a372b639565ce23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_ручка_BaseColor.png using Guid(7041580d1a6216249a372b639565ce23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f692702c3d20e5a81c074440b68f7e85') in 0.152344 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 12.817699 seconds.
+  path: Assets/Models/sword/swordMaterials/guard.mat
+  artifactKey: Guid(f8dbd6d457b7cbb4d871f443f00a7528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordMaterials/guard.mat using Guid(f8dbd6d457b7cbb4d871f443f00a7528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e6282436ee173b323b8355ec06d3111') in 0.211477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 7.701413 seconds.
+  path: Assets/Models/sword/swordMaterials/blade.mat
+  artifactKey: Guid(5612228edf26ca448a80a88afbeb955b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordMaterials/blade.mat using Guid(5612228edf26ca448a80a88afbeb955b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bd60b7f0732dec113805d031828e0b6') in 0.187618 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 4.951557 seconds.
+  path: Assets/Models/sword/swordMaterials/handle.mat
+  artifactKey: Guid(d8b40cff2fa5b244bbd5902fcefd00c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordMaterials/handle.mat using Guid(d8b40cff2fa5b244bbd5902fcefd00c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '484a47d04c8d7ac7bb35857e2c4c83bd') in 0.208592 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.439019 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_гарда_BaseColor.png
+  artifactKey: Guid(7f4401a2abd555a43a637350f8530d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_гарда_BaseColor.png using Guid(7f4401a2abd555a43a637350f8530d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a1836db7bb38c269a4e4ed959615222') in 0.114006 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_гарда_Roughness.png
+  artifactKey: Guid(9eb9cb15d8cb34e4a93f1ecf4a388b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_гарда_Roughness.png using Guid(9eb9cb15d8cb34e4a93f1ecf4a388b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fbf3550e51e022517f4a324f7c37aa1') in 0.124281 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_лезвие_BaseColor.png
+  artifactKey: Guid(0d0c1e1a5f2ded646b12f5f619862be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_лезвие_BaseColor.png using Guid(0d0c1e1a5f2ded646b12f5f619862be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ebe0c765787e1ca377b2c123290f396') in 0.157649 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_гарда_Normal.png
+  artifactKey: Guid(3d7a221634a8a994787a189c42157b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_гарда_Normal.png using Guid(3d7a221634a8a994787a189c42157b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '707a0a8fed9d7d67273118b6eb47e78b') in 0.114715 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_лезвие_Metallic.png
+  artifactKey: Guid(e474455ffa65c134fbddce24233bc8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_лезвие_Metallic.png using Guid(e474455ffa65c134fbddce24233bc8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd284bc6eba9cc92d8e40c0be7199b61f') in 0.078261 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Models/sword/swordTextures/полуторный_меч_гарда_Metallic.png
+  artifactKey: Guid(226fe1286c3de4044b81df574ad4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/полуторный_меч_гарда_Metallic.png using Guid(226fe1286c3de4044b81df574ad4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c28dee6f0855f21523e798f35df2f306') in 0.093770 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.019662 seconds.
+  path: Assets/Models/sword/swordTextures/a.png
+  artifactKey: Guid(7f4401a2abd555a43a637350f8530d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/a.png using Guid(7f4401a2abd555a43a637350f8530d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c751ee4fca0ab6d15df9945f9225d76c') in 0.097895 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 2.852552 seconds.
+  path: Assets/Models/sword/swordTextures/b.png
+  artifactKey: Guid(226fe1286c3de4044b81df574ad4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/b.png using Guid(226fe1286c3de4044b81df574ad4c0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e138bd94c128081f266be562f5745cac') in 0.085487 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.172044 seconds.
+  path: Assets/Models/sword/swordTextures/c.png
+  artifactKey: Guid(3d7a221634a8a994787a189c42157b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/c.png using Guid(3d7a221634a8a994787a189c42157b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9479ee9b5c168004ec040dddeebacdd') in 0.125371 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 6.060467 seconds.
+  path: Assets/Models/sword/swordTextures/d.png
+  artifactKey: Guid(9eb9cb15d8cb34e4a93f1ecf4a388b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/d.png using Guid(9eb9cb15d8cb34e4a93f1ecf4a388b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e1aed262f701233b5dab63bfa7e93b') in 0.145169 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.333594 seconds.
+  path: Assets/Models/sword/swordTextures/e.png
+  artifactKey: Guid(0d0c1e1a5f2ded646b12f5f619862be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/e.png using Guid(0d0c1e1a5f2ded646b12f5f619862be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e660ac813faf24f6ee5b4acf12b1a7c') in 0.130847 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.889423 seconds.
+  path: Assets/Models/sword/swordTextures/f.png
+  artifactKey: Guid(e474455ffa65c134fbddce24233bc8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/f.png using Guid(e474455ffa65c134fbddce24233bc8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a88d05cd6d3b6e31bd9e1443c78adba') in 0.071213 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 6.194007 seconds.
+  path: Assets/Models/sword/swordTextures/g.png
+  artifactKey: Guid(b06c4dab435e21c4b84bee1a599f5449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/g.png using Guid(b06c4dab435e21c4b84bee1a599f5449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3553c036ceb20c535582bbfb71f737c9') in 0.104557 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.895074 seconds.
+  path: Assets/Models/sword/swordTextures/h.png
+  artifactKey: Guid(c76848fd4247fb3419f2aceb5f1e67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/h.png using Guid(c76848fd4247fb3419f2aceb5f1e67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa21965c698a7c9312813c826bb1efa4') in 0.112931 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.688133 seconds.
+  path: Assets/Models/sword/swordTextures/i.png
+  artifactKey: Guid(7041580d1a6216249a372b639565ce23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/i.png using Guid(7041580d1a6216249a372b639565ce23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc7d272a174af90a59185df262415d8c') in 0.119548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.702171 seconds.
+  path: Assets/Models/sword/swordTextures/j.png
+  artifactKey: Guid(405e296797a28664bbaa2ec714ba5bb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/j.png using Guid(405e296797a28664bbaa2ec714ba5bb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '637ae038516e8abdb27967d50870a06f') in 0.062753 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 10.758477 seconds.
+  path: Assets/Models/sword/swordTextures/k.png
+  artifactKey: Guid(c7db8cf20402dad4d9dc0af678b0102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/k.png using Guid(c7db8cf20402dad4d9dc0af678b0102d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74301617ecb28baa2f92aded5b5aa798') in 0.101159 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.857456 seconds.
+  path: Assets/Models/sword/swordTextures/l.png
+  artifactKey: Guid(edeedc996b03e2f4cbb199c47cb01ed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/sword/swordTextures/l.png using Guid(edeedc996b03e2f4cbb199c47cb01ed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8fe8e7323cf404597fdd3a0b547c3ac') in 0.127302 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 4.397341 seconds.
+  path: Assets/Prefab/Player/Player.prefab
+  artifactKey: Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/Player.prefab using Guid(fcd5a045cd35a8d41a1ca52ea141a071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08ab7923c69827d4274e8d798feb34ad') in 1.346669 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1646
+========================================================================
+Received Import Request.
+  Time since last request: 2.428320 seconds.
+  path: Assets/Prefab/Player/swordMesh.prefab
+  artifactKey: Guid(3a0988cc33c3a5a4d9e5472b22ded0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/swordMesh.prefab using Guid(3a0988cc33c3a5a4d9e5472b22ded0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc7734d18e65e4c32206dfee76a7de22') in 0.564809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 48
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Prefab/Player/swordMesh.prefab
+  artifactKey: Guid(3a0988cc33c3a5a4d9e5472b22ded0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/swordMesh.prefab using Guid(3a0988cc33c3a5a4d9e5472b22ded0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc7734d18e65e4c32206dfee76a7de22') in 0.654980 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 48
+========================================================================
+Received Import Request.
+  Time since last request: 2.993197 seconds.
+  path: Assets/Prefab/Player/ShotGun_C.prefab
+  artifactKey: Guid(e48eb5a59bc818840b3690266d5db1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Player/ShotGun_C.prefab using Guid(e48eb5a59bc818840b3690266d5db1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d58fda5c3b4616f7681c9a0838057e') in 0.032227 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 66
