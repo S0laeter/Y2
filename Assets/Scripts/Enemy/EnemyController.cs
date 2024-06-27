@@ -223,6 +223,8 @@ public class EnemyController : MonoBehaviour
         isDead = true;
         navMeshAgent.enabled = false;
 
+        this.GetComponent<CapsuleCollider>().enabled = false;
+
         Actions.OnEnemyKilled(this);
 
         //destroy this enemy, do this last

@@ -13,11 +13,17 @@ public class TimerManager : MonoBehaviour
     {
         //subscribing to actions
         Actions.OnEnemyKilled += UpdateTimerOnKill;
+
+        Actions.Win += StopTimer;
+        Actions.Lose += StopTimer;
     }
     private void OnDisable()
     {
         //unsubscribing to actions
         Actions.OnEnemyKilled -= UpdateTimerOnKill;
+
+        Actions.Win -= StopTimer;
+        Actions.Lose -= StopTimer;
     }
 
     // Start is called before the first frame update
@@ -53,9 +59,15 @@ public class TimerManager : MonoBehaviour
         currentTime += enemy.extraTimeOnDeath;
     }
 
+
+    private void StopTimer()
+    {
+        StopCoroutine(TimerCountdown());
+    }
+
     private void TimeOut()
     {
-        Actions.Lose();
+        Actions.OnTimeOut();
     }
 
 }

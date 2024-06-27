@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public float maxHealth = 100f;
     public float currentHealth;
+    private bool isDead;
 
     public float maxEnergy = 100f;
     public float currentEnergy;
@@ -42,12 +43,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        Actions.Lose += Die;
+        Actions.OnTimeOut += Die;
+
         Actions.OnEnemyDamaged += LifeSteal;
     }
     private void DisEnable()
     {
-        Actions.Lose -= Die;
+        Actions.OnTimeOut -= Die;
+
         Actions.OnEnemyDamaged -= LifeSteal;
 
         //input events
@@ -73,6 +76,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 200f;
 
         currentHealth = maxHealth;
+        isDead = false;
         currentEnergy = 0f;
         Actions.UpdatePlayerHealthBar(this);
         Actions.UpdatePlayerEnergyBar(this);
@@ -125,10 +129,12 @@ public class PlayerController : MonoBehaviour
             skillHeldTime = 0f;
         }
 
-
-        if (currentHealth <= 0f)
+        //check if dead
+        if (currentHealth <= 0f && !isDead)
         {
+            isDead = true;
             currentHealth = 0;
+
             Die();
         }
 

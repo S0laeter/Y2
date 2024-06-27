@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
+    public SceneTransition sceneTransition;
 
     public Slider hpSlider;
     public Image hpFill;
@@ -16,12 +18,18 @@ public class HUDManager : MonoBehaviour
 
     public TextMeshProUGUI timerText;
 
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
     private void OnEnable()
     {
         //subscribing to actions
         Actions.UpdatePlayerHealthBar += UpdateHealthBar;
         Actions.UpdatePlayerEnergyBar += UpdateEnergyBar;
         Actions.UpdateTimer += UpdateTimer;
+
+        Actions.Win += Win;
+        Actions.Lose += Lose;
     }
     private void OnDisable()
     {
@@ -29,6 +37,9 @@ public class HUDManager : MonoBehaviour
         Actions.UpdatePlayerHealthBar -= UpdateHealthBar;
         Actions.UpdatePlayerEnergyBar -= UpdateEnergyBar;
         Actions.UpdateTimer -= UpdateTimer;
+
+        Actions.Win -= Win;
+        Actions.Lose -= Lose;
     }
 
     public void UpdateHealthBar(PlayerController player)
@@ -57,6 +68,38 @@ public class HUDManager : MonoBehaviour
         float minutes = Mathf.Clamp(Mathf.Floor(timerManager.currentTime / 60), 0f, 60f);
         float seconds = Mathf.Clamp(Mathf.Floor(timerManager.currentTime % 60), 0f, 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+
+
+    private void Win()
+    {
+        StartCoroutine(WaitForWinScreen());
+    }
+
+    private void Lose()
+    {
+        StartCoroutine(WaitForLoseScreen());
+    }
+
+    private IEnumerator WaitForWinScreen()
+    {
+        //wait for death animation
+        yield return new WaitForSeconds(1f);
+
+        winScreen.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        sceneTransition.LoadScene("LevelSelect");
+    }
+
+    private IEnumerator WaitForLoseScreen()
+    {
+        //wait for death animation
+        yield return new WaitForSeconds(1f);
+
+        loseScreen.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        sceneTransition.LoadScene("LevelSelect");
     }
 
 
