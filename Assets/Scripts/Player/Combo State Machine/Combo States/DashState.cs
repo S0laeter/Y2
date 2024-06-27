@@ -10,7 +10,7 @@ public class DashState : MeleeBaseState
         base.OnEnter(_stateMachine);
 
         dashDuration = 0.6f;
-        dashCooldown = 0.5f;
+        dashCooldown = 1f;
 
         //just to make sure dash canceling doesn't break anything
         comboCharacter.DisableIgnoreCollisionWithEnemy();

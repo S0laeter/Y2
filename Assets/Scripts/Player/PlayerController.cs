@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
+        cam = GameObject.FindWithTag("MainCamera").transform;
 
         //input events
         playerInput.actions["Dash"].performed += DashInputPerformed;

@@ -36,10 +36,13 @@ public class Skill00State : MeleeBaseState
         if (fixedTime >= attackDuration)
         {
 
-            //atk button pressed
             if (shouldSkill)
             {
                 stateMachine.SetNextState(new Skill01State());
+            }
+            else if (shouldCombo)
+            {
+                stateMachine.SetNextState(new Attack3State());
             }
             //nothing pressed
             else
