@@ -416,6 +416,7 @@
 "Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs"
 "Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs"
+"Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs"
 "Assets/Scripts/Actions.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/Enemy1ApproachState.cs"
 "Assets/Scripts/Enemy/Enemy State Machine/Enemy1 States/Enemy1Attack1State.cs"

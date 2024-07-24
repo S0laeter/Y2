@@ -1,8 +1,5 @@
-using Autodesk.Fbx;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.Processors;
@@ -248,6 +245,12 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //instantiate bullet
+    public void InstantiateBullet()
+    {
+        Instantiate(bulletPrefab, instantiatePoint.position, instantiatePoint.rotation, this.transform);
+        attackDamage = attackPower * 10f;
+    }
 
     //blood effects
     private IEnumerator BloodEffect()
